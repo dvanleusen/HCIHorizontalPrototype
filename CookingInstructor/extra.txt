@@ -1,0 +1,52 @@
+<ListBoxItem Height="100" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock Foreground="#FFFC900E" Text="Recently Added" FontFamily="Typo Round Regular Demo" Margin="0,0,0,5"></TextBlock>
+                    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source=" c:\users\ashle_000\documents\visual studio 2015\Projects\CookingInstructor\CookingInstructor\recent1.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="recent2.jpg"></Image>
+                            <Image Margin ="5" MaxHeight="100" MaxWidth="100" Source="recent3.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="recent4.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="recent5.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="recent6.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="recent7.jpg"></Image>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Height="100" Margin="0,0,0,5">
+                <StackPanel>
+                    <TextBlock Text="My Recipes" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" Margin="0,0,0,5"></TextBlock>
+                    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="myrec1.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="myrec2.jpg"></Image>
+                            <Image Margin ="5" MaxHeight="100" MaxWidth="100" Source="myrec3.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="myrec4.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="myrec5.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="myrec6.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="myrec7.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="myrec8.jpg"></Image>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </ListBoxItem>
+
+            <ListBoxItem Height="100">
+                <StackPanel>
+                    <TextBlock Text="Chicken Dishes" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" Margin="0,0,0,5"></TextBlock>
+                    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="chicken1.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="chicken2.jpg"></Image>
+                            <Image Margin ="5" MaxHeight="100" MaxWidth="100" Source="chicken3.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="chicken4.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="chicken5.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="chicken6.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="chicken7.jpg"></Image>
+                            <Image Margin="5" MaxHeight="100" MaxWidth="100" Source="chicken8.jpg"></Image>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </ListBoxItem>

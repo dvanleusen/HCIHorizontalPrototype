@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="CookingInstructor.RecipeIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CookingInstructor"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100" 
+             MouseEnter="RecipeIcon_MouseEnter"
+             MouseLeave="RecipeIcon_MouseLeave">
+    <Grid>
+        <StackPanel>
+            <Image Name="recipePicture" MaxHeight="100" MaxWidth="100" Margin="5"></Image>
+            <TextBox Name ="titleBox" MaxWidth="100" FontFamily="Typo Round Regular Demo" Foreground="#FFFAF8F5" FontSize="9" TextAlignment="Center"></TextBox>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
