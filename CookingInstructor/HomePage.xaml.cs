@@ -20,70 +20,72 @@ namespace CookingInstructor
     /// </summary>
     public partial class HomePage : UserControl
     {
+        private Boolean search;
         public HomePage()
         {
             InitializeComponent();
+            search = false;
         
             Category vegan = new Category("Vegan");
-            vegan.addRecipe(new RecipeIcon("vegan1.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan2.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan3.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan4.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan5.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan6.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan7.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan8.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan9.jpg", ""));
-            vegan.addRecipe(new RecipeIcon("vegan10.jpg", ""));
+            vegan.addRecipe(new RecipeIcon("vegan1.jpg", "Corn Salad"));
+            vegan.addRecipe(new RecipeIcon("vegan2.jpg", "Vegan Chili"));
+            vegan.addRecipe(new RecipeIcon("vegan3.jpg", "Vegan Pasta"));
+            vegan.addRecipe(new RecipeIcon("vegan4.jpg", "Filled Peppers"));
+            vegan.addRecipe(new RecipeIcon("vegan5.jpg", "Vegan Noodle Dish"));
+            vegan.addRecipe(new RecipeIcon("vegan6.jpg", "Mushroom Stir Fry"));
+            vegan.addRecipe(new RecipeIcon("vegan7.jpg", "Vegan Lasagna"));
+            vegan.addRecipe(new RecipeIcon("vegan8.jpg", "Tofu Curry"));
+            vegan.addRecipe(new RecipeIcon("vegan9.jpg", "Califlower Yellow Curry"));
+            vegan.addRecipe(new RecipeIcon("vegan10.jpg", "Bean Stew"));
 
             Category recentlyAdded = new Category("Recently Added");
-            recentlyAdded.addRecipe(new RecipeIcon("recent1.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent2.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent3.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent4.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent5.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent6.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent7.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent8.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent9.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent10.jpg", ""));
-            recentlyAdded.addRecipe(new RecipeIcon("recent11.jpg", ""));
+            recentlyAdded.addRecipe(new RecipeIcon("recent1.jpg", "Deluxe Pizza"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent2.jpg", "Heart Attack Hamburger"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent3.jpg", "Deep Dish Pizza"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent4.jpg", "Spaghetti"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent5.jpg", "Chicken Salad"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent6.jpg", "BBQ Ribs"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent7.jpg", "Thai Glass Noodle Soup"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent8.jpg", "Meatball Appetizer")); 
+            recentlyAdded.addRecipe(new RecipeIcon("recent9.jpg", "Spring Rolls"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent10.jpg", "Nanaimo Bar"));
+            recentlyAdded.addRecipe(new RecipeIcon("recent11.jpg", "Breakfast Burrito"));
 
             Category myRecipes = new Category("My Recipes");
-            myRecipes.addRecipe(new RecipeIcon("myrec1.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec2.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec3.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec4.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec5.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec6.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec7.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec8.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec9.jpg", ""));
-            myRecipes.addRecipe(new RecipeIcon("myrec10.jpg", ""));
+            myRecipes.addRecipe(new RecipeIcon("myrec1.jpg", "Cashew Stir Fry"));
+            myRecipes.addRecipe(new RecipeIcon("myrec2.jpg", "Spaghetti and Meatballs"));
+            myRecipes.addRecipe(new RecipeIcon("myrec3.jpg", "Baked Mac and Cheese"));
+            myRecipes.addRecipe(new RecipeIcon("myrec4.jpg", "Thin Crust Margherita Pizza"));
+            myRecipes.addRecipe(new RecipeIcon("myrec5.jpg", "Cherry Pie"));
+            myRecipes.addRecipe(new RecipeIcon("myrec6.jpg", "Pina Colada"));
+            myRecipes.addRecipe(new RecipeIcon("myrec7.jpg", "Long Island Iced Tea"));
+            myRecipes.addRecipe(new RecipeIcon("myrec8.jpg", "Peanut Butter Cookies"));
+            myRecipes.addRecipe(new RecipeIcon("myrec9.jpg", "Lasagna"));
+            myRecipes.addRecipe(new RecipeIcon("myrec10.jpg", "Banana Smore"));
 
             Category chickenDishes = new Category("Chicken Dishes");
-            chickenDishes.addRecipe(new RecipeIcon("chicken1.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken2.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken3.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken4.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken5.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken6.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken7.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken8.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken9.jpg", ""));
-            chickenDishes.addRecipe(new RecipeIcon("chicken10.jpg", ""));
+            chickenDishes.addRecipe(new RecipeIcon("chicken1.jpg", "Thai Chicken Bites"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken2.jpg", "Chicken Stir Fry"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken3.jpg", "Cashew Chicken"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken4.jpg", "Tandoori Chicken"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken5.jpg", "Chicken Nachos"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken6.jpg", "Thai Chicken Souvlaki"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken7.jpg", "Chicken Stew"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken8.jpg", "Roasted Chicken"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken9.jpg", "Chicken Curry"));
+            chickenDishes.addRecipe(new RecipeIcon("chicken10.jpg", "Deep Fried Chicken"));
 
             Category dessert = new Category("Dessert");
             dessert.addRecipe(new RecipeIcon("dessert1.jpg", "Chocolate Mint Bars"));
-            dessert.addRecipe(new RecipeIcon("dessert2.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert3.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert4.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert5.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert6.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert7.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert8.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert9.jpg", ""));
-            dessert.addRecipe(new RecipeIcon("dessert10.jpg", ""));
+            dessert.addRecipe(new RecipeIcon("dessert2.jpg", "Chocolate Cup Cakes"));
+            dessert.addRecipe(new RecipeIcon("dessert3.jpg", "Blueberry Vanilla Pudding"));
+            dessert.addRecipe(new RecipeIcon("dessert4.jpg", "Tiramisu"));
+            dessert.addRecipe(new RecipeIcon("dessert5.jpg", "Layered Chocolate Cake"));
+            dessert.addRecipe(new RecipeIcon("dessert6.jpg", "Red Velvet Cookies"));
+            dessert.addRecipe(new RecipeIcon("dessert7.jpg", "Dessert Raspberry Pizza Pie"));
+            dessert.addRecipe(new RecipeIcon("dessert8.jpg", "Lemon Pudding"));
+            dessert.addRecipe(new RecipeIcon("dessert9.jpg", "Lemon Meringue Tarts"));
+            dessert.addRecipe(new RecipeIcon("dessert10.jpg", "Chocolate Fudge"));
 
             addCategory(recentlyAdded);
             addCategory(myRecipes);
@@ -117,5 +119,20 @@ namespace CookingInstructor
         img.Source = new BitmapImage(src);
 
     }
-}
+
+    private void searchPressed(object sender, RoutedEventArgs e)
+    {
+            if (search)
+            {
+                searchBar.IsEnabled = false;
+                searchBar.Opacity = 0;
+            }
+            else
+            {
+                searchBar.IsEnabled = true;
+                searchBar.Opacity = 100;
+            }
+            search = !search;
+    }
+   }
 }

@@ -9,9 +9,9 @@
              MouseEnter="RecipeIcon_MouseEnter"
              MouseLeave="RecipeIcon_MouseLeave">
     <Grid>
-        <StackPanel>
+        <StackPanel Background="#FFFAF8F5" Margin="10">
             <Image Name="recipePicture" MaxHeight="200" MaxWidth="200" Margin="5"></Image>
-            <TextBox Name ="titleBox" MaxWidth="200" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" TextAlignment="Center"/>
+            <TextBlock Name ="titleBox" MaxWidth="200" FontFamily="Typo Round Regular Demo" Foreground="Black" TextDecorations="{x:Null}" Background="Transparent"/>
         </StackPanel>
         
     </Grid>

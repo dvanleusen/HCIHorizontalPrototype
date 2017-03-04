@@ -95,6 +95,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -205,6 +209,7 @@
     <Resource Include="recent9.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="arrowTab.png" />
     <Content Include="Simple and Easy Roast Chicken Recipe.mp4" />
     <Content Include="TheCuriousFaucet0001-1620.avi" />
   </ItemGroup>

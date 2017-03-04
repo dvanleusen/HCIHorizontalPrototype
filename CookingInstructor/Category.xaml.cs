@@ -33,5 +33,31 @@ namespace CookingInstructor
         {
             imagePane.Children.Add(rec);
         }
+
+
+
+        //should be in a separate class later
+        private void leftPressed(object sender, RoutedEventArgs e)
+        {
+            ScrollControl.PageLeft();
+        }
+
+        private void rightPressed(object sender, RoutedEventArgs e)
+        {
+            ScrollControl.PageRight();
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button curButton = sender as Button;
+            curButton.Opacity = 100;
+        }
+
+        private void Button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button curButton = sender as Button;
+            curButton.Opacity = 0;
+
+        }
     }
 }

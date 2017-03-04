@@ -21,3 +21,4 @@ C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\Cooki
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\RecipePage.g.cs
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\RecipePage.baml
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\CookingInstructor_Content.g.cs
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\Themes\Generic.baml
