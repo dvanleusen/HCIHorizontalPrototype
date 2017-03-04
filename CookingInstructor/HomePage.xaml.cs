@@ -21,10 +21,15 @@ namespace CookingInstructor
     public partial class HomePage : UserControl
     {
         private Boolean search;
+        private CategoryPanel catPane;
+        private SearchPanel searchPane;
+
         public HomePage()
         {
             InitializeComponent();
             search = false;
+            catPane = new CategoryPanel();
+            searchPane = new SearchPanel();
         
             Category vegan = new Category("Vegan");
             vegan.addRecipe(new RecipeIcon("vegan1.jpg", "Corn Salad"));
@@ -87,17 +92,13 @@ namespace CookingInstructor
             dessert.addRecipe(new RecipeIcon("dessert9.jpg", "Lemon Meringue Tarts"));
             dessert.addRecipe(new RecipeIcon("dessert10.jpg", "Chocolate Fudge"));
 
-            addCategory(recentlyAdded);
-            addCategory(myRecipes);
-            addCategory(chickenDishes);
-            addCategory(vegan);
-            addCategory(dessert);
-    }
-    public void addCategory(Category cat)
-    {
-        ListBoxItem i = new ListBoxItem();
-        i.Content = cat;
-        listBox.Items.Add(i);
+            catPane.addCategory(recentlyAdded);
+            catPane.addCategory(myRecipes);
+            catPane.addCategory(chickenDishes);
+            catPane.addCategory(vegan);
+            catPane.addCategory(dessert);
+
+            panelGrid.Children.Add(catPane);
     }
     private void button_mouse_enter(object sender, MouseEventArgs e)
     {
@@ -122,17 +123,26 @@ namespace CookingInstructor
 
     private void searchPressed(object sender, RoutedEventArgs e)
     {
+            Button btn = sender as Button;
+            StackPanel pane = btn.Content as StackPanel;
+            Image img = pane.Children[0] as Image;
+            TextBlock text = pane.Children[1] as TextBlock;
             if (search)
             {
-                searchBar.IsEnabled = false;
-                searchBar.Opacity = 0;
+                panelGrid.Children.Remove(searchPane);
+                panelGrid.Children.Add(catPane);
+                img.Source = new BitmapImage(new Uri("pack://application:,,,/search_mouse_enter.png"));
+                text.Text = "Search";
             }
             else
             {
-                searchBar.IsEnabled = true;
-                searchBar.Opacity = 100;
+                panelGrid.Children.Remove(catPane);
+                panelGrid.Children.Add(searchPane);
+                img.Source = new BitmapImage(new Uri("pack://application:,,,/categories_mouse_enter.png"));
+                text.Text = "Groups"; 
             }
             search = !search;
+           
     }
    }
 }

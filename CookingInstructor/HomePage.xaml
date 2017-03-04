@@ -8,9 +8,9 @@
              d:DesignHeight="534.666666666667" d:DesignWidth="768">
 
     <Grid Width="Auto" Height="Auto">
-        <ListBox x:Name="listBox" Margin="0,62,-0.333,-0.333" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" Background="Transparent"/>
+        <Grid Name="panelGrid"></Grid>
+
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" TextWrapping="Wrap" Text="Cooking Instructor" VerticalAlignment="Top" Width="248" RenderTransformOrigin="0.512,0.016" LineHeight="72" FontSize="28" FontWeight="Bold" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E"/>
-        <TextBox Name="searchBar" Opacity="0" IsEnabled="False" Height="20" Margin="295,18,253,496.667"></TextBox>
         <StackPanel Orientation ="Horizontal" Height="57" VerticalAlignment="Top" Width="218" HorizontalAlignment="Right">
 
             <Button x:Name="button" MaxWidth="55" Width="75" Margin="5" BorderBrush="#00707070" Background="#00DDDDDD" MouseEnter="button_mouse_enter" MouseLeave ="button_mouse_leave" Click="searchPressed">

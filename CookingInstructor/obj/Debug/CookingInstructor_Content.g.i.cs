@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("simple%20and%20easy%20roast%20chicken%20recipe.mp4")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("thecuriousfaucet0001-1620.avi")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("chickenvid.mp4")]
 
 
