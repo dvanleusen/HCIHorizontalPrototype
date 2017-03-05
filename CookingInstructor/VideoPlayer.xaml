@@ -13,6 +13,14 @@
         </Grid.RowDefinitions>
         <MediaElement Grid.Row="0" Name="video"></MediaElement>
         <Button Grid.Row="0" Height="25" Width="25" Background="#00DDDDDD" BorderBrush="#00707070"></Button>
-        <Slider Grid.Row="1"></Slider>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Height="20" VerticalAlignment="Top"></Button>
+            <Slider Foreground="#FFFC900E" Grid.Column="1"></Slider>
+        </Grid>
+       
     </Grid>
 </UserControl>

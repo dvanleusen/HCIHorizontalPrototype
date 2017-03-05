@@ -7,57 +7,118 @@
              mc:Ignorable="d" 
              d:DesignHeight="534.666666666667" d:DesignWidth="768">
     <Grid>
-        <DockPanel HorizontalAlignment="Left" Height="535" LastChildFill="False" VerticalAlignment="Top" Width="768">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Margin="0,0,0,10" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
             
-            <StackPanel Margin="0,0,0,10" DockPanel.Dock="Top" Orientation="Horizontal">
-                <TextBlock Name ="titleBox" Text="Roasted Chicken" Width="384" Foreground="#FFFC900E" FontFamily="Typo Round Regular Demo" FontSize="24" Margin="5" FontWeight="Bold"></TextBlock>
-                <TextBlock Text="Cook " Width="96" Foreground="#FFFC900E" FontFamily="Typo Round Regular Demo" Margin="5" FontSize="16"></TextBlock>
-                <TextBlock Text="Prep" Width="96" Foreground="#FFFC900E" FontFamily="Typo Round Regular Demo" Margin="5" FontSize="16"></TextBlock>
-                <TextBlock Text="Temperature" Width="96" Foreground="#FFFC900E" FontFamily="Typo Round Regular Demo" Margin="5" FontSize="16"></TextBlock>
-            </StackPanel>
+                <Button Grid.Column="0" BorderBrush="#00707070" Foreground="#FFFC900E" Background="#FFFC900E">
+                    <Image Source="arrow.png" MaxWidth="20"></Image>
+                </Button>
+                <Button Grid.Column="1" BorderBrush="#00707070" Foreground="#FFFC900E" Background="#FFFC900E">
+                    <Image Source="bookmark.png" MaxWidth="30"></Image>
+                </Button>
+                <TextBlock Grid.Column="2" Name ="titleBox" Text="Roasted Chicken" Foreground="#FFFC900E" FontFamily="Typo Round Regular Demo" FontSize="24" Margin="10" FontWeight="Bold"></TextBlock>
+         </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             
-            <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="5">
-                <MediaElement MaxWidth="400" Source="chickenvid.mp4" Margin="0,0,0,10"></MediaElement>
-                <StackPanel Background="White">
-                    <TextBlock Text="Ingredients" Foreground="#FFFC900E" FontSize="16" Margin="0,0,0,5"></TextBlock>
-                    <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" Height="239" BorderBrush="#FFC9CACE">
-                        <ListBoxItem>
+            <Grid Grid.Column="0" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <MediaElement Grid.Row="0" Source="chickenvid.mp4" Margin="5"></MediaElement>
+                <StackPanel Grid.Row="1" Background="White" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Grid.Column="0" Text="Ingredients" Foreground="#FFFC900E" FontSize="18" Margin="10"></TextBlock>
+                        <StackPanel Grid.Column="1" Margin="5" Orientation="Vertical">
+                                <TextBlock Margin="0,0,0,5" Text="Serves" Foreground="#FFFC900E"></TextBlock>
+                                <TextBox Text="4" Foreground="#FF0A0A0A"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Orientation="Vertical" Margin="5">
+                            <TextBlock Text="Units" Margin="0,0,0,5" Foreground="#FFFC900E"></TextBlock>
+                            <ComboBox Height="19"  Width="40"/>
+                        </StackPanel>
+                    </Grid>
+                    <ListBox Name="ingredientBox" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderThickness="0,1,0,0">
+                        <ListBoxItem Margin="0,0,0,5">
                             <TextBlock Text="1 whole chicken"></TextBlock>
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem Margin="0,0,0,5">
                             <TextBlock Text="salt and pepper to taste"></TextBlock>
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem Margin="0,0,0,5">
                             <TextBlock Text="1 tbsp onion powder"></TextBlock>
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem Margin="0,0,0,5">
                             <TextBlock Text="1/2 cup margarine"></TextBlock>
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem Margin="0,0,0,5">
                             <TextBlock Text="1 stalk celery, leaves removed"></TextBlock>
                         </ListBoxItem>
                     </ListBox>
 
                 </StackPanel>
-            </StackPanel>
+            </Grid>
 
-            <StackPanel DockPanel.Dock="Right" Orientation="Vertical" Margin="5" Background="White">
-                <TextBlock Text="Instructions" FontSize="16" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" Margin="0,0,0,5"></TextBlock>
-                <ListBox MaxWidth="400" Name ="ingredientBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" Height="453" BorderBrush="#FFC9CACE">
-                    <ListBoxItem Margin="0,10,0,0">
-                        <TextBlock TextWrapping="Wrap" Text="Preheat Oven to 350 degrees F"></TextBlock>
-                    </ListBoxItem>
-                    <ListBoxItem Margin="0,10,0,0" >
-                        <TextBlock TextWrapping="Wrap" Text="Place chicken in a roasting pan, and season generously inside and out with salt and pepper. Sprinkle inside and out with onion powder. Place 3 tablespoons margarine in the chicken cavity. Arrange dollops of the remaining margarine around the chicken's exterior. Cut the celery into 3 or 4 pieces, and place in the chicken cavity."></TextBlock>
-                    </ListBoxItem>
+        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5" Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-                    <ListBoxItem Margin="0,10,0,0">
-                        <TextBlock TextWrapping="Wrap" Text="Bake uncovered 1 hour and 15 minutes in the preheated oven, to a minimum internal temperature of 180 degrees F (82 degrees C). Remove from heat, and baste with melted margarine and drippings. Cover with aluminum foil, and allow to rest about 30 minutes before serving."></TextBlock>
-                    </ListBoxItem>
-                </ListBox>
-            </StackPanel>
+                <TextBlock Grid.Column="0" Text="Instructions" Foreground="#FFFC900E" FontSize="18" Margin="10"></TextBlock>
 
-        </DockPanel>
+                <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
+                    <TextBlock Text="Prep" Margin="0,0,0,5" Foreground="#FFFC900E"></TextBlock>
+                    <TextBlock Text="10m"></TextBlock>
+                </StackPanel>
 
+                <StackPanel Grid.Column="2" Margin="5" Orientation="Vertical">
+                    <TextBlock Margin="0,0,0,5" Text="Cook" Foreground="#FFFC900E"></TextBlock>
+                    <TextBlock Text="1h 15m" Foreground="#FF0A0A0A"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Column="3" Orientation="Vertical" Margin="5">
+                    <TextBlock Text="Total" Margin="0,0,0,5" Foreground="#FFFC900E"></TextBlock>
+                    <TextBlock Text="1h 40m"></TextBlock>
+                </StackPanel>
+            </Grid>
+            <ListBox Margin="10" Name ="instructionBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderThickness="0,1,0,0">
+                <ListBoxItem Margin="0,10,0,0">
+                    <TextBlock TextWrapping="Wrap" Text="1. Preheat oven to 350 degrees F"></TextBlock>
+                </ListBoxItem>
+                <ListBoxItem Margin="0,10,0,0" >
+                    <TextBlock TextWrapping="Wrap" Text="2. Place chicken in a roasting pan, and season generously inside and out with salt and pepper. Sprinkle inside and out with onion powder. Place 3 tablespoons margarine in the chicken cavity. Arrange dollops of the remaining margarine around the chicken's exterior. Cut the celery into 3 or 4 pieces, and place in the chicken cavity."></TextBlock>
+                </ListBoxItem>
+
+                <ListBoxItem Margin="0,10,0,0">
+                    <TextBlock TextWrapping="Wrap" Text="3. Bake uncovered 1 hour and 15 minutes in the preheated oven, to a minimum internal temperature of 180 degrees F (82 degrees C). Remove from heat, and baste with melted margarine and drippings. Cover with aluminum foil, and allow to rest about 30 minutes before serving."></TextBlock>
+                </ListBoxItem>
+            </ListBox>
+        </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

@@ -24,5 +24,10 @@ namespace CookingInstructor
         {
             InitializeComponent();
         }
+
+        public void addRecipe(RecipeIcon rec)
+        {
+            resultsPanel.Children.Add(rec);
+        }
     }
 }

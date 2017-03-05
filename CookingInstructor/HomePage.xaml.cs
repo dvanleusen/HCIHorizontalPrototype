@@ -70,15 +70,43 @@ namespace CookingInstructor
 
             Category chickenDishes = new Category("Chicken Dishes");
             chickenDishes.addRecipe(new RecipeIcon("chicken1.jpg", "Thai Chicken Bites"));
+            searchPane.addRecipe(new RecipeIcon("chicken1.jpg", "Thai Chicken Bites"));
+
+            //RecipeIcon chicken2 = ;
             chickenDishes.addRecipe(new RecipeIcon("chicken2.jpg", "Chicken Stir Fry"));
+            searchPane.addRecipe(new RecipeIcon("chicken2.jpg", "Chicken Stir Fry"));
+
+           // RecipeIcon chicken3 = ;
             chickenDishes.addRecipe(new RecipeIcon("chicken3.jpg", "Cashew Chicken"));
+            searchPane.addRecipe(new RecipeIcon("chicken3.jpg", "Cashew Chicken"));
+
+            //RecipeIcon chicken4 = ;
             chickenDishes.addRecipe(new RecipeIcon("chicken4.jpg", "Tandoori Chicken"));
+            searchPane.addRecipe(new RecipeIcon("chicken4.jpg", "Tandoori Chicken"));
+
+           // RecipeIcon chicken5 = new RecipeIcon("chicken5.jpg", "Chicken Nachos");
             chickenDishes.addRecipe(new RecipeIcon("chicken5.jpg", "Chicken Nachos"));
+            searchPane.addRecipe(new RecipeIcon("chicken5.jpg", "Chicken Nachos"));
+
+            //RecipeIcon chicken6 = new RecipeIcon("chicken6.jpg", "Thai Chicken Souvlaki");
             chickenDishes.addRecipe(new RecipeIcon("chicken6.jpg", "Thai Chicken Souvlaki"));
+            searchPane.addRecipe(new RecipeIcon("chicken6.jpg", "Thai Chicken Souvlaki"));
+
+            //RecipeIcon chicken7 = new RecipeIcon("chicken7.jpg", "Chicken Stew");
             chickenDishes.addRecipe(new RecipeIcon("chicken7.jpg", "Chicken Stew"));
+            searchPane.addRecipe(new RecipeIcon("chicken7.jpg", "Chicken Stew"));
+
+           // RecipeIcon chicken8 = new RecipeIcon("chicken8.jpg", "Roasted Chicken");
             chickenDishes.addRecipe(new RecipeIcon("chicken8.jpg", "Roasted Chicken"));
+            searchPane.addRecipe(new RecipeIcon("chicken8.jpg", "Roasted Chicken"));
+
+            //RecipeIcon chicken9 = new RecipeIcon("chicken9.jpg", "Chicken Curry");
             chickenDishes.addRecipe(new RecipeIcon("chicken9.jpg", "Chicken Curry"));
+            searchPane.addRecipe(new RecipeIcon("chicken9.jpg", "Chicken Curry"));
+
+            //RecipeIcon chicken10 = new RecipeIcon("chicken10.jpg", "Deep Fried Chicken");
             chickenDishes.addRecipe(new RecipeIcon("chicken10.jpg", "Deep Fried Chicken"));
+            searchPane.addRecipe(new RecipeIcon("chicken10.jpg", "Deep Fried Chicken"));
 
             Category dessert = new Category("Dessert");
             dessert.addRecipe(new RecipeIcon("dessert1.jpg", "Chocolate Mint Bars"));
@@ -129,14 +157,14 @@ namespace CookingInstructor
             TextBlock text = pane.Children[1] as TextBlock;
             if (search)
             {
-                panelGrid.Children.Remove(searchPane);
+                panelGrid.Children.Clear();
                 panelGrid.Children.Add(catPane);
                 img.Source = new BitmapImage(new Uri("pack://application:,,,/search_mouse_enter.png"));
                 text.Text = "Search";
             }
             else
             {
-                panelGrid.Children.Remove(catPane);
+                panelGrid.Children.Clear();
                 panelGrid.Children.Add(searchPane);
                 img.Source = new BitmapImage(new Uri("pack://application:,,,/categories_mouse_enter.png"));
                 text.Text = "Groups"; 

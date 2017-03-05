@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListBox x:Name="listBox" Margin="0,62,-0.333,-0.333" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" Background="Transparent"/>
+        <ListBox x:Name="listBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderBrush="#00ABADB3" Foreground="#00000000"/>
     </Grid>
 </UserControl>

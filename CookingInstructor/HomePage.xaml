@@ -7,31 +7,46 @@
              mc:Ignorable="d" 
              d:DesignHeight="534.666666666667" d:DesignWidth="768">
 
-    <Grid Width="Auto" Height="Auto">
-        <Grid Name="panelGrid"></Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="1" Name="panelGrid"></Grid>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0" x:Name="textBlock" Margin="5" Text="Cooking Instructor" FontSize="36" FontWeight="Bold" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" VerticalAlignment="Center"/>
+         
 
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" TextWrapping="Wrap" Text="Cooking Instructor" VerticalAlignment="Top" Width="248" RenderTransformOrigin="0.512,0.016" LineHeight="72" FontSize="28" FontWeight="Bold" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E"/>
-        <StackPanel Orientation ="Horizontal" Height="57" VerticalAlignment="Top" Width="218" HorizontalAlignment="Right">
-
-            <Button x:Name="button" MaxWidth="55" Width="75" Margin="5" BorderBrush="#00707070" Background="#00DDDDDD" MouseEnter="button_mouse_enter" MouseLeave ="button_mouse_leave" Click="searchPressed">
+            <Button Grid.Column="1" x:Name="button" Margin="5" BorderBrush="#00707070" Background="#00DDDDDD" MouseEnter="button_mouse_enter" MouseLeave ="button_mouse_leave" Click="searchPressed">
                 <StackPanel Height="Auto" Width="Auto">
                     <Image Source="search.png" Height="26" Width="41" Margin="0,0,0,5"></Image>
                     <TextBlock Text="Search" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" FontSize="11" TextAlignment="Center"></TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="button_Copy1" MaxWidth="55" Width="75" Margin="5" BorderBrush="#00707070" Background="#00DDDDDD" MouseEnter="button_mouse_enter" MouseLeave ="button_mouse_leave">
+            
+            <Button Grid.Column="2" x:Name="button_Copy1" Margin="5" BorderBrush="#00707070" Background="#00DDDDDD" MouseEnter="button_mouse_enter" MouseLeave ="button_mouse_leave">
                 <StackPanel Height="Auto" Width="Auto">
                     <Image Source="ear.png" Height="26" Width="41" Margin="0,0,0,5"/>
                     <TextBlock Text="Voice" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" FontSize="11" TextAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="button_Copy2" MaxWidth="55" Width="75" Margin="5" BorderBrush="#00707070" Background="#00DDDDDD" MouseEnter="button_mouse_enter" MouseLeave="button_mouse_leave">
+            
+            <Button Grid.Column="3" x:Name="button_Copy2" Margin="5" BorderBrush="#00707070" Background="#00DDDDDD" MouseEnter="button_mouse_enter" MouseLeave="button_mouse_leave">
                 <StackPanel Name ="hi" Height="Auto" Width="Auto">
                     <Image Source="tutorial.png" Height="26" Width="41" Margin="0,0,0,5"/>
                     <TextBlock Text="Tutorial" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" FontSize="11" TextAlignment="Center"/>
                 </StackPanel>
             </Button>
-        </StackPanel>
+        </Grid>
+        
     </Grid>
 </UserControl>
     

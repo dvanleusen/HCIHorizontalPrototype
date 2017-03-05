@@ -230,6 +230,9 @@
     <Resource Include="recent9.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="arrow.png" />
+    <Resource Include="bookmark.png" />
+    <Content Include="chickenvid.wmv" />
     <Resource Include="arrowTab.png" />
     <Content Include="chickenvid.mp4" />
   </ItemGroup>
