@@ -73,6 +73,9 @@
     <Compile Include="SearchPanel.xaml.cs">
       <DependentUpon>SearchPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TutorialPanel.xaml.cs">
+      <DependentUpon>TutorialPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VideoPlayer.xaml.cs">
       <DependentUpon>VideoPlayer.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CategoryPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TutorialPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,8 +237,10 @@
     <Resource Include="recent9.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="tutorial_image.png" />
     <Resource Include="arrow.png" />
     <Resource Include="bookmark.png" />
+    <Resource Include="cancel.png" />
     <Content Include="chickenvid.wmv" />
     <Resource Include="arrowTab.png" />
     <Content Include="chickenvid.mp4" />

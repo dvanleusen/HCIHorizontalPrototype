@@ -21,8 +21,10 @@ namespace CookingInstructor
     public partial class HomePage : UserControl
     {
         private Boolean search;
+        private Boolean tutorialOn;
         private CategoryPanel catPane;
         private SearchPanel searchPane;
+        private TutorialPanel tutPane;
 
         public HomePage()
         {
@@ -30,7 +32,9 @@ namespace CookingInstructor
             search = false;
             catPane = new CategoryPanel();
             searchPane = new SearchPanel();
+            tutPane = new TutorialPanel();
         
+            /*Hard Coded data to be removed later and replaced with generated data*/
             Category vegan = new Category("Vegan");
             vegan.addRecipe(new RecipeIcon("vegan1.jpg", "Corn Salad"));
             vegan.addRecipe(new RecipeIcon("vegan2.jpg", "Vegan Chili"));
@@ -148,7 +152,7 @@ namespace CookingInstructor
         img.Source = new BitmapImage(src);
 
     }
-
+    /*A function to toggle between the search and categories view for finding a recipe*/
     private void searchPressed(object sender, RoutedEventArgs e)
     {
             Button btn = sender as Button;
@@ -171,6 +175,20 @@ namespace CookingInstructor
             }
             search = !search;
            
+    }
+    /*A function to toggle the visibility of the tutorial when the button is pressed*/
+    private void tutorialPressed(object sender, RoutedEventArgs e)
+    {
+        if (tutorialOn)
+        {
+            panelGrid.Children.Remove(tutPane);
+        }
+        else
+        {
+            panelGrid.Children.Add(tutPane);
+        }
+        tutorialOn = !tutorialOn;
+
     }
    }
 }

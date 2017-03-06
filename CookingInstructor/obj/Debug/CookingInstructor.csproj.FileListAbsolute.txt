@@ -28,3 +28,5 @@ C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\Cooki
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\CategoryPanel.g.cs
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\SearchPanel.baml
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\CategoryPanel.baml
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\TutorialPanel.g.cs
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\TutorialPanel.baml
