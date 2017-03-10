@@ -30,3 +30,8 @@ C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\Cooki
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\CategoryPanel.baml
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\TutorialPanel.g.cs
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\TutorialPanel.baml
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\ValueEntry.g.cs
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\ValueEntry.baml
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\Ingredient.g.cs
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\obj\Debug\Ingredient.baml

@@ -25,6 +25,8 @@ namespace CookingInstructor
         private CategoryPanel catPane;
         private SearchPanel searchPane;
         private TutorialPanel tutPane;
+        private RecipeIcon roastedChicken;
+        private RecipePage page;
 
         public HomePage()
         {
@@ -33,6 +35,7 @@ namespace CookingInstructor
             catPane = new CategoryPanel();
             searchPane = new SearchPanel();
             tutPane = new TutorialPanel();
+            page = new RecipePage();
         
             /*Hard Coded data to be removed later and replaced with generated data*/
             Category vegan = new Category("Vegan");
@@ -76,39 +79,32 @@ namespace CookingInstructor
             chickenDishes.addRecipe(new RecipeIcon("chicken1.jpg", "Thai Chicken Bites"));
             searchPane.addRecipe(new RecipeIcon("chicken1.jpg", "Thai Chicken Bites"));
 
-            //RecipeIcon chicken2 = ;
             chickenDishes.addRecipe(new RecipeIcon("chicken2.jpg", "Chicken Stir Fry"));
             searchPane.addRecipe(new RecipeIcon("chicken2.jpg", "Chicken Stir Fry"));
 
-           // RecipeIcon chicken3 = ;
             chickenDishes.addRecipe(new RecipeIcon("chicken3.jpg", "Cashew Chicken"));
             searchPane.addRecipe(new RecipeIcon("chicken3.jpg", "Cashew Chicken"));
 
-            //RecipeIcon chicken4 = ;
             chickenDishes.addRecipe(new RecipeIcon("chicken4.jpg", "Tandoori Chicken"));
             searchPane.addRecipe(new RecipeIcon("chicken4.jpg", "Tandoori Chicken"));
 
-           // RecipeIcon chicken5 = new RecipeIcon("chicken5.jpg", "Chicken Nachos");
             chickenDishes.addRecipe(new RecipeIcon("chicken5.jpg", "Chicken Nachos"));
             searchPane.addRecipe(new RecipeIcon("chicken5.jpg", "Chicken Nachos"));
 
-            //RecipeIcon chicken6 = new RecipeIcon("chicken6.jpg", "Thai Chicken Souvlaki");
             chickenDishes.addRecipe(new RecipeIcon("chicken6.jpg", "Thai Chicken Souvlaki"));
             searchPane.addRecipe(new RecipeIcon("chicken6.jpg", "Thai Chicken Souvlaki"));
 
-            //RecipeIcon chicken7 = new RecipeIcon("chicken7.jpg", "Chicken Stew");
+          
             chickenDishes.addRecipe(new RecipeIcon("chicken7.jpg", "Chicken Stew"));
             searchPane.addRecipe(new RecipeIcon("chicken7.jpg", "Chicken Stew"));
 
-           // RecipeIcon chicken8 = new RecipeIcon("chicken8.jpg", "Roasted Chicken");
-            chickenDishes.addRecipe(new RecipeIcon("chicken8.jpg", "Roasted Chicken"));
+            roastedChicken = new RecipeIcon("chicken8.jpg", "Roasted Chicken");
+            chickenDishes.addRecipe(roastedChicken);
             searchPane.addRecipe(new RecipeIcon("chicken8.jpg", "Roasted Chicken"));
 
-            //RecipeIcon chicken9 = new RecipeIcon("chicken9.jpg", "Chicken Curry");
             chickenDishes.addRecipe(new RecipeIcon("chicken9.jpg", "Chicken Curry"));
             searchPane.addRecipe(new RecipeIcon("chicken9.jpg", "Chicken Curry"));
 
-            //RecipeIcon chicken10 = new RecipeIcon("chicken10.jpg", "Deep Fried Chicken");
             chickenDishes.addRecipe(new RecipeIcon("chicken10.jpg", "Deep Fried Chicken"));
             searchPane.addRecipe(new RecipeIcon("chicken10.jpg", "Deep Fried Chicken"));
 
@@ -190,5 +186,18 @@ namespace CookingInstructor
         tutorialOn = !tutorialOn;
 
     }
-   }
+     //will eventually be used to check if any recipe icon is pressed
+     //for now it checks if the roasted chicken button is pressed
+     private void HomePage_Pressed(object sender, MouseEventArgs e)
+     {
+            if (roastedChicken.isPressed())
+            {
+                panelGrid.Children.Clear();
+                panelGrid.Children.Add(page);
+            }
+
+     }
+    }
+
+   
 }

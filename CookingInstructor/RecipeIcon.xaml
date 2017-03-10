@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="200" 
              MouseEnter="RecipeIcon_MouseEnter"
-             MouseLeave="RecipeIcon_MouseLeave">
+             MouseLeave="RecipeIcon_MouseLeave"
+             MouseLeftButtonDown="RecipeIcon_Pressed">
     <Grid>
         <StackPanel Background="#FFFAF8F5" Margin="10">
             <Image Name="recipePicture" MaxHeight="200" MaxWidth="200" Margin="5"></Image>

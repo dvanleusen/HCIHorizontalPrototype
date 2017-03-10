@@ -6,26 +6,39 @@
              xmlns:local="clr-namespace:CookingInstructor"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.5*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
+
             <StackPanel Grid.Column = "0" Orientation="Horizontal">
                 <StackPanel Margin="0,0,10,0" >
                     <TextBlock Text="Search" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" Margin="0,0,0,5" FontSize="18"></TextBlock>
-                    <TextBox Width="200" Height="20"></TextBox>
+                    <Grid Width=" 200" Height="20">
+                        <TextBox Width="200" Height="20"></TextBox>
+                        <Image Height="10" Source="search_mouse_enter.png" RenderTransformOrigin="0.504,-4.545" Margin="59,4,-59,6">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform X="49.65" Y="51.25"/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
+
                 </StackPanel>
-                
+
                 <StackPanel Margin="0,0,10,0">
                     <TextBlock Text="Sort By" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" Margin="0,0,0,5" FontSize="18"></TextBlock>
                     <ComboBox Width="100" Grid.Column="1"  Height="20">
@@ -46,14 +59,14 @@
                         </ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
-                
+
             </StackPanel>
         </Grid>
-        
+
         <TextBlock Grid.Row="1" Text="Results" Background="#00000000" FontFamily="Typo Round Regular Demo" FontSize="18" Foreground="#FFFC900E"></TextBlock>
         <ScrollViewer Grid.Row="2">
             <WrapPanel Name="resultsPanel"></WrapPanel>
-        </ScrollViewer> 
-        
+        </ScrollViewer>
+
     </Grid>
 </UserControl>

@@ -45,36 +45,15 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="50"></ColumnDefinition>
-                            <ColumnDefinition Width="50"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         
                         <TextBlock Grid.Column="0" Text="Ingredients" Foreground="#FFFC900E" FontSize="18" Margin="10"></TextBlock>
                         <StackPanel Grid.Column="1" Margin="5" Orientation="Vertical">
-                                <TextBlock Margin="0,0,0,5" Text="Serves" Foreground="#FFFC900E"></TextBlock>
-                                <TextBox Text="4" Foreground="#FF0A0A0A"></TextBox>
-                        </StackPanel>
-
-                        <StackPanel Grid.Column="2" Orientation="Vertical" Margin="5">
-                            <TextBlock Text="Units" Margin="0,0,0,5" Foreground="#FFFC900E"></TextBlock>
-                            <ComboBox Height="19"  Width="40"/>
+                            <TextBlock Margin="0,0,0,5" Text="Serves" Foreground="#FFFC900E"></TextBlock>
+                            <local:ValueEntry Height="20"></local:ValueEntry>
                         </StackPanel>
                     </Grid>
                     <ListBox Name="ingredientBox" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderThickness="0,1,0,0">
-                        <ListBoxItem Margin="0,0,0,5">
-                            <TextBlock Text="1 whole chicken"></TextBlock>
-                        </ListBoxItem>
-                        <ListBoxItem Margin="0,0,0,5">
-                            <TextBlock Text="salt and pepper to taste"></TextBlock>
-                        </ListBoxItem>
-                        <ListBoxItem Margin="0,0,0,5">
-                            <TextBlock Text="1 tbsp onion powder"></TextBlock>
-                        </ListBoxItem>
-                        <ListBoxItem Margin="0,0,0,5">
-                            <TextBlock Text="1/2 cup margarine"></TextBlock>
-                        </ListBoxItem>
-                        <ListBoxItem Margin="0,0,0,5">
-                            <TextBlock Text="1 stalk celery, leaves removed"></TextBlock>
-                        </ListBoxItem>
                     </ListBox>
 
                 </StackPanel>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructor\App.xaml
-10-151392982
+12-835342951
 2-2009353573
-13-242824368
+151858840035
 13738642453
-HomePage.xaml;MainWindow.xaml;Category.xaml;RecipeIcon.xaml;RecipePage.xaml;SearchPanel.xaml;Themes\Generic.xaml;CategoryPanel.xaml;TutorialPanel.xaml;VideoPlayer.xaml;
+HomePage.xaml;Ingredient.xaml;MainWindow.xaml;Category.xaml;RecipeIcon.xaml;RecipePage.xaml;SearchPanel.xaml;Themes\Generic.xaml;CategoryPanel.xaml;TutorialPanel.xaml;ValueEntry.xaml;VideoPlayer.xaml;
 
 False
 

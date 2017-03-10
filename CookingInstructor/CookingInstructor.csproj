@@ -61,6 +61,9 @@
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ingredient.xaml.cs">
+      <DependentUpon>Ingredient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RecipeIcon.xaml.cs">
       <DependentUpon>RecipeIcon.xaml</DependentUpon>
     </Compile>
@@ -76,10 +79,17 @@
     <Compile Include="TutorialPanel.xaml.cs">
       <DependentUpon>TutorialPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueEntry.xaml.cs">
+      <DependentUpon>ValueEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VideoPlayer.xaml.cs">
       <DependentUpon>VideoPlayer.xaml</DependentUpon>
     </Compile>
     <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ingredient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TutorialPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValueEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
