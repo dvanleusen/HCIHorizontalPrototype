@@ -1,10 +1,88 @@
 ﻿<Window x:Class="CookingInstructor.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CookingInstructor"
-        mc:Ignorable="d"
-        Title="MainWindow">
-    <Grid Name="SubWindowPanel" Background="#FFB5D9DE"/>
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CookingInstructor"
+             xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
+             mc:Ignorable="d" 
+             Height="Auto" Width="Auto">
+    
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    <Grid Background="#FFB5D9DE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ContentControl Grid.Row="1" Content="{Binding}">
+            <ContentControl.Style>
+                <Style TargetType="{x:Type ContentControl}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding PageState}" Value="1">
+                            <Setter Property="ContentTemplate" Value="{StaticResource CategoryPanel}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding PageState}" Value="0">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SearchPanel}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding PageState}" Value="2">
+                            <Setter Property="ContentTemplate" Value="{StaticResource RecipePage}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+
+        <Grid Grid.Row="1" Visibility="{Binding TutorialOpen, Converter={StaticResource BoolToVis}}">
+            <local:TutorialPanel></local:TutorialPanel>
+        </Grid>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Margin="5" Style="{StaticResource Title}" Text="Cooking Instructor"/>
+
+            <Button Grid.Column="1" Style="{StaticResource Button1}" Command="{Binding ButtonPressed}" CommandParameter="Search">
+                <StackPanel Height="Auto" Width="Auto">
+                    <Image Source="search.png" Style="{StaticResource Button1Img}"></Image>
+                    <TextBlock Text="Search" Style="{StaticResource ButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="2" Style="{StaticResource Button1}" Command="{Binding ButtonPressed}" CommandParameter="Groups">
+                <StackPanel Height="Auto" Width="Auto">
+                    <Image Source="categories.png" Style="{StaticResource Button1Img}"></Image>
+                    <TextBlock Text="Groups" Style="{StaticResource ButtonText}"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="3"  Style="{StaticResource Button1}">
+                <StackPanel Height="Auto" Width="Auto">
+                    <Image Source="ear.png" Style="{StaticResource Button1Img}"/>
+                    <TextBlock Text="Voice" Style="{StaticResource ButtonText}"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="4" Style="{StaticResource Button1}" Command="{Binding ButtonPressed}" CommandParameter="Tutorial">
+                <StackPanel Height="Auto" Width="Auto">
+                    <Image Source="tutorial.png" Style="{StaticResource Button1Img}"/>
+                    <TextBlock Text="Tutorial" Style="{StaticResource ButtonText}"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        
+    </Grid>
 </Window>
+    
+    
+    
+    

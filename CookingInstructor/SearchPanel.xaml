@@ -4,9 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CookingInstructor"
+             xmlns:vm="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
+    
+    <UserControl.DataContext>
+        <vm:MainWindowViewModel/>
+    </UserControl.DataContext>
+    
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"></RowDefinition>
@@ -22,51 +27,48 @@
 
             <StackPanel Grid.Column = "0" Orientation="Horizontal">
                 <StackPanel Margin="0,0,10,0" >
-                    <TextBlock Text="Search" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" Margin="0,0,0,5" FontSize="18"></TextBlock>
-                    <Grid Width=" 200" Height="20">
-                        <TextBox Width="200" Height="20"></TextBox>
-                        <Image Height="10" Source="search_mouse_enter.png" RenderTransformOrigin="0.504,-4.545" Margin="59,4,-59,6">
-                            <Image.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="90"/>
-                                    <TranslateTransform X="49.65" Y="51.25"/>
-                                </TransformGroup>
-                            </Image.RenderTransform>
-                        </Image>
+                    <TextBlock Text="Search" Style="{StaticResource SubSubTitle}" Margin="0,0,0,5" ></TextBlock>
+                    <Grid>
+                        <TextBox Text="{Binding SearchText, Mode=TwoWay}" Width="200" Height="20"></TextBox>
+                        <Button Command="{Binding ButtonPressed}" CommandParameter="SearchEntry" 
+                                Background="{x:Null}" 
+                                BorderBrush="{x:Null}" 
+                                HorizontalAlignment="Right" Width="20">
+                            <Image Source="smallsearch.png"></Image>
+                        </Button>
                     </Grid>
 
                 </StackPanel>
 
                 <StackPanel Margin="0,0,10,0">
-                    <TextBlock Text="Sort By" FontFamily="Typo Round Regular Demo" Foreground="#FFFC900E" Margin="0,0,0,5" FontSize="18"></TextBlock>
-                    <ComboBox Width="100" Grid.Column="1"  Height="20">
-                        <ComboBoxItem>
-                            <TextBlock Text="Cook Time"></TextBlock>
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Text="A-Z"></TextBlock>
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Text="Z-A"></TextBlock>
-                        </ComboBoxItem>
-                        <ComboBoxItem >
-                            <TextBlock Text="Recent"></TextBlock>
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Text="Relevance"></TextBlock>
-                        </ComboBoxItem>
+                    <TextBlock Text="Sort By" Style="{StaticResource SubSubTitle}" Margin="0,0,0,5" ></TextBlock>
+                    <ComboBox ItemsSource="{Binding SortByOptions}" 
+                              SelectedItem="{Binding SortRecipesBy, Mode=TwoWay}" 
+                              Width="100" Grid.Column="1"  Height="20">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
 
             </StackPanel>
         </Grid>
 
-        <TextBlock Grid.Row="1" Text="Results" Background="#00000000" FontFamily="Typo Round Regular Demo" FontSize="18" Foreground="#FFFC900E"></TextBlock>
-        <ScrollViewer Grid.Row="2">
-            <WrapPanel Name="resultsPanel"></WrapPanel>
-        </ScrollViewer>
-
+        <TextBlock Grid.Row="1" Text="Results" Style="{StaticResource SubSubTitle}"></TextBlock>
+        <ListBox BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="2" 
+                 SelectedItem ="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}},Path= DataContext.SelectedRecipe, Mode=TwoWay}" 
+                 ItemsSource="{Binding Recipes}" 
+                 ItemTemplate="{StaticResource RecipeIcon}"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+        
     </Grid>
 </UserControl>

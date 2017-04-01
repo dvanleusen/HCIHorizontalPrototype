@@ -18,6 +18,6 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.3*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image Grid.Row="1" Grid.Column="1" Source="tutorial_image.png"></Image>
+        <local:VideoPlayer Grid.Row="1" Grid.Column="1" Video="chickenvid.mp4"></local:VideoPlayer>
     </Grid>
 </UserControl>

@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:CookingInstructor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <BooleanToVisibilityConverter x:Key="BoolToVis" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="ToolKitStyleResources.xaml"/>
+                <ResourceDictionary  Source="TextResources.xaml"/>
+                <ResourceDictionary Source="DataTemplateResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary> 
     </Application.Resources>
 </Application>

@@ -4,22 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CookingInstructor"
+             xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400">
-    <Grid>
+
+    <UserControl.DataContext>
+        <vm:VideoPlayerViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid Name="Panel">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
         </Grid.RowDefinitions>
-        <MediaElement Grid.Row="0" Name="video"></MediaElement>
+        <MediaElement LoadedBehavior="Manual" Name="Media" Grid.Row="0" Stretch="None" Source="{Binding Path=Video}"/>
+
         <Button Grid.Row="0" Height="25" Width="25" Background="#00DDDDDD" BorderBrush="#00707070"></Button>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Height="20" VerticalAlignment="Top"></Button>
-            <Slider Foreground="#FFFC900E" Grid.Column="1"></Slider>
+            <Button Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="0" Click="Button_Click" Command="{Binding ButtonPressed}">
+                <Image Height="20">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Play}" Value="True">
+                                    <Setter Property="Source" Value="icon-pause-128.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Play}" Value="False">
+                                    <Setter Property="Source" Value="play-xxl.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+            <Slider Name="Slider" Grid.Column="1" Minimum="0" Maximum="{Binding ElementName=Media, Path=NaturalDuration.TimeSpan.TotalSeconds}" Value="{Binding ElementName=Media, Path=Position.Seconds, Mode=OneWay}" ValueChanged="Slider_ValueChanged"></Slider>
         </Grid>
        
     </Grid>

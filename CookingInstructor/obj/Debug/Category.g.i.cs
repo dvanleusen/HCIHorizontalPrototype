@@ -38,7 +38,7 @@ namespace CookingInstructor {
     /// <summary>
     /// Category
     /// </summary>
-    public partial class Category : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
+    public partial class CategoryBox : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         
         #line 11 "..\..\Category.xaml"

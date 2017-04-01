@@ -38,7 +38,7 @@ namespace CookingInstructor {
     /// <summary>
     /// Ingredient
     /// </summary>
-    public partial class Ingredient : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
+    public partial class IngredientPanel : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         
         #line 16 "..\..\Ingredient.xaml"

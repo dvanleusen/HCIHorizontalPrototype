@@ -25,31 +25,34 @@ namespace CookingInstructor
             InitializeComponent();
         }
 
-        public static readonly DependencyProperty Value = DependencyProperty.Register
+        #region Value DP
+        public static DependencyProperty ValueElement = DependencyProperty.Register
             (
                  "Value",
                  typeof(string),
                  typeof(ValueEntry),
-                 new PropertyMetadata(string.Empty)
+                 new PropertyMetadata("")
             );
 
-       /* public string Value
+        public string Value
         {
-            get { return (string)GetValue(Value); }
-            set { SetValue(Value, value); }
-        }*/
+            get { return (string)GetValue(ValueElement); }
+            set { SetValue(ValueElement, value); }
+        }
+
+        #endregion
 
 
         private void decrement_Click(object sender, RoutedEventArgs e)
         {
-            int val = Convert.ToInt32(value.Text);
-            value.Text = Convert.ToString(--val);
+           int valInt = Convert.ToInt32(Value);
+            Value = Convert.ToString(--valInt);
         }
 
         private void increment_Click(object sender, RoutedEventArgs e)
         {
-            int val = Convert.ToInt32(value.Text);
-            value.Text = Convert.ToString(++val);
+            int valInt = Convert.ToInt32(Value);
+            Value = Convert.ToString(++valInt);
         }
     }
 }

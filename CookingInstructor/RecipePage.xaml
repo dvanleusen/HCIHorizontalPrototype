@@ -4,100 +4,133 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CookingInstructor"
+              xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="534.666666666667" d:DesignWidth="768">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="IngredientFormat">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Content}"/>
+                <Image Grid.Column="1" Height="16" Source="smallarrow.png"></Image>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="SubFormat">
+            <TextBlock Text="{Binding Content}"></TextBlock>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+        
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <Grid Margin="0,0,0,10" Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-            
-                <Button Grid.Column="0" BorderBrush="#00707070" Foreground="#FFFC900E" Background="#FFFC900E">
-                    <Image Source="arrow.png" MaxWidth="20"></Image>
-                </Button>
-                <Button Grid.Column="1" BorderBrush="#00707070" Foreground="#FFFC900E" Background="#FFFC900E">
-                    <Image Source="bookmark.png" MaxWidth="30"></Image>
-                </Button>
-                <TextBlock Grid.Column="2" Name ="titleBox" Text="Roasted Chicken" Foreground="#FFFC900E" FontFamily="Typo Round Regular Demo" FontSize="24" Margin="10" FontWeight="Bold"></TextBlock>
-         </Grid>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" BorderBrush="#00707070" Foreground="#FFFC900E" Background="#FFFC900E" CommandParameter="Fave" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=DataContext.ButtonPressed}">
+                <Image Source="bookmark.png" MaxWidth="30"/>
+            </Button>
+            <TextBlock Grid.Column="2" Text="{Binding Title}" Style="{StaticResource SubTitle}" Margin="10"/>
+        </Grid>
         
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             
             <Grid Grid.Column="0" Margin="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <MediaElement Grid.Row="0" Source="chickenvid.mp4" Margin="5"></MediaElement>
-                <StackPanel Grid.Row="1" Background="White" Margin="5">
-                    <Grid>
+                
+                <local:VideoPlayer Video="{Binding VideoPath}" Grid.Row="0" Margin="5"/>
+                
+                <Grid Grid.Row="1" Background="White" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
-                        
-                        <TextBlock Grid.Column="0" Text="Ingredients" Foreground="#FFFC900E" FontSize="18" Margin="10"></TextBlock>
+
+                        <TextBlock Grid.Column="0" Text="Ingredients" Style="{StaticResource SubSubTitle}" Margin="10"/>
                         <StackPanel Grid.Column="1" Margin="5" Orientation="Vertical">
-                            <TextBlock Margin="0,0,0,5" Text="Serves" Foreground="#FFFC900E"></TextBlock>
-                            <local:ValueEntry Height="20"></local:ValueEntry>
+                            <TextBlock Margin="0,0,0,5" Text="Serves" Style="{StaticResource BaseTitleText}"/>
+                            <local:ValueEntry Value="{Binding ServingSize}"/>
                         </StackPanel>
                     </Grid>
-                    <ListBox Name="ingredientBox" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderThickness="0,1,0,0">
-                    </ListBox>
-
-                </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox Name="Ingredients" Grid.Column="0" ItemTemplate="{StaticResource IngredientFormat}" ItemsSource="{Binding Ingredients}" Margin="10,10,0,10" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderThickness="0,1,0,0"/>
+                        <ListView Grid.Column="1" VerticalAlignment="Stretch" ItemTemplate="{StaticResource SubFormat}" ItemsSource="{Binding ElementName=Ingredients, Path=SelectedItem.Substitutions}" Margin="0, 10, 0, 0" BorderThickness="1"/>
+                    </Grid>
+                </Grid>
             </Grid>
 
-        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5" Background="White">
-            <Grid>
+        <Grid Grid.Column="1" Margin="5" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="50"></ColumnDefinition>
-                    <ColumnDefinition Width="50"></ColumnDefinition>
-                    <ColumnDefinition Width="50"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="Instructions" Foreground="#FFFC900E" FontSize="18" Margin="10"></TextBlock>
+                    <TextBlock Grid.Column="0" Text="Instructions" Style="{StaticResource SubSubTitle}" Margin="10"/>
 
-                <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
-                    <TextBlock Text="Prep" Margin="0,0,0,5" Foreground="#FFFC900E"></TextBlock>
-                    <TextBlock Text="10m"></TextBlock>
-                </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
+                        <TextBlock Text="Prep" Margin="0,0,0,5" Style="{StaticResource BaseTitleText}"/>
+                        <TextBlock Text="{Binding PrepTime}"/>
+                    </StackPanel>
 
                 <StackPanel Grid.Column="2" Margin="5" Orientation="Vertical">
-                    <TextBlock Margin="0,0,0,5" Text="Cook" Foreground="#FFFC900E"></TextBlock>
-                    <TextBlock Text="1h 15m" Foreground="#FF0A0A0A"></TextBlock>
-                </StackPanel>
+                        <TextBlock Margin="0,0,0,5" Text="Cook" Style="{StaticResource BaseTitleText}"/>
+                        <TextBlock Text="{Binding CookTime}"/>
+                    </StackPanel>
 
                 <StackPanel Grid.Column="3" Orientation="Vertical" Margin="5">
-                    <TextBlock Text="Total" Margin="0,0,0,5" Foreground="#FFFC900E"></TextBlock>
-                    <TextBlock Text="1h 40m"></TextBlock>
-                </StackPanel>
+                        <TextBlock Text="Total" Margin="0,0,0,5" Style="{StaticResource BaseTitleText}"/>
+                        <TextBlock Text="{Binding TotalTime}"/>
+                    </StackPanel>
             </Grid>
-            <ListBox Margin="10" Name ="instructionBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderThickness="0,1,0,0">
-                <ListBoxItem Margin="0,10,0,0">
-                    <TextBlock TextWrapping="Wrap" Text="1. Preheat oven to 350 degrees F"></TextBlock>
-                </ListBoxItem>
-                <ListBoxItem Margin="0,10,0,0" >
-                    <TextBlock TextWrapping="Wrap" Text="2. Place chicken in a roasting pan, and season generously inside and out with salt and pepper. Sprinkle inside and out with onion powder. Place 3 tablespoons margarine in the chicken cavity. Arrange dollops of the remaining margarine around the chicken's exterior. Cut the celery into 3 or 4 pieces, and place in the chicken cavity."></TextBlock>
-                </ListBoxItem>
-
-                <ListBoxItem Margin="0,10,0,0">
-                    <TextBlock TextWrapping="Wrap" Text="3. Bake uncovered 1 hour and 15 minutes in the preheated oven, to a minimum internal temperature of 180 degrees F (82 degrees C). Remove from heat, and baste with melted margarine and drippings. Cover with aluminum foil, and allow to rest about 30 minutes before serving."></TextBlock>
-                </ListBoxItem>
-            </ListBox>
-        </StackPanel>
+                <TabControl VerticalAlignment="Stretch" Grid.Row="1">
+                    <TabItem Tag="List" Header="List">
+                        <ListBox Margin="10" ItemsSource="{Binding Instructions}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" BorderThickness="0,1,0,0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Margin="0,10,0,0" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </TabItem>
+                    <TabItem Header="Notes">
+                        <TextBox VerticalAlignment="Stretch"></TextBox>
+                    </TabItem>
+                </TabControl>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

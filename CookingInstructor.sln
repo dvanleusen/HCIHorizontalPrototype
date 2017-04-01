@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingInstructor", "CookingInstructor\CookingInstructor.csproj", "{F452B870-6DA3-4DF7-96DB-EBB283A81496}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingInstructorView", "CookingInstructor\CookingInstructorView.csproj", "{F452B870-6DA3-4DF7-96DB-EBB283A81496}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingInstructorViewModel", "CookingInstructorViewModel\CookingInstructorViewModel.csproj", "{5347D740-305C-480F-8148-476BC2195276}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingInstructorModel", "CookingInstructorModel\CookingInstructorModel.csproj", "{EBEEC390-A3A7-413E-9F5C-D5F79A05B591}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F452B870-6DA3-4DF7-96DB-EBB283A81496}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F452B870-6DA3-4DF7-96DB-EBB283A81496}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F452B870-6DA3-4DF7-96DB-EBB283A81496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5347D740-305C-480F-8148-476BC2195276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5347D740-305C-480F-8148-476BC2195276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5347D740-305C-480F-8148-476BC2195276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5347D740-305C-480F-8148-476BC2195276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBEEC390-A3A7-413E-9F5C-D5F79A05B591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEEC390-A3A7-413E-9F5C-D5F79A05B591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEEC390-A3A7-413E-9F5C-D5F79A05B591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBEEC390-A3A7-413E-9F5C-D5F79A05B591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
