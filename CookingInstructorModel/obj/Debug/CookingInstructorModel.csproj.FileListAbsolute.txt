@@ -1,0 +1,5 @@
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorModel\bin\Debug\CookingInstructorModel.dll
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorModel\bin\Debug\CookingInstructorModel.pdb
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorModel\obj\Debug\CookingInstructorModel.csprojResolveAssemblyReference.cache
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorModel\obj\Debug\CookingInstructorModel.dll
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorModel\obj\Debug\CookingInstructorModel.pdb

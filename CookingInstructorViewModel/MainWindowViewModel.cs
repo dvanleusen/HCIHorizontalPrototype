@@ -13,6 +13,7 @@ namespace CookingInstructorViewModel
         public enum State {Search, Groups, Recipe};
         private readonly DelegateCommand<string> buttonPressCommand;
 
+        private Data recipeData;
         private Boolean tutorialOpen;
         private State pageState;
         private ObservableCollection<Recipe> recipes;
@@ -24,14 +25,15 @@ namespace CookingInstructorViewModel
 
         public MainWindowViewModel()
         {
+            recipeData = Data.Instance;
             TutorialOpen = false;
             PageState = State.Groups;
             SelectedRecipe = null;
             sortByOptions = new ObservableCollection<string> { "Cook Time", "Prep Time", "A-Z", "Z-A", "Relevance" };
             SortRecipesBy = "Relevance";
-            SearchText = "Enter Search Terms";
+            SearchText = "Search";
             Recipes = new ObservableCollection<Recipe>();
-            Categories = Data.Instance.Categories;
+            Categories = Data.Instance.GetCategories();
             
             buttonPressCommand = new DelegateCommand<string>(buttonPress);
         }
@@ -123,11 +125,22 @@ namespace CookingInstructorViewModel
             }
             else if (btn.Equals("Fave"))
             {
-
+                if(Data.Instance.Contains("My Recipes", SelectedRecipe))
+                {
+                    recipeData.Remove("My Recipes", SelectedRecipe);
+                    SelectedRecipe.inFavourites = false;
+                }
+                else
+                {
+                    recipeData.Add("My Recipes", SelectedRecipe);
+                    SelectedRecipe.inFavourites = true;
+                }
+                Categories = recipeData.GetCategories();
+                OnPropertyChanged("SelectedRecipe");
             }
             else if (btn.Equals("SearchEntry"))
             {
-                Recipes = Data.Instance.Search(SearchText);
+                Recipes = recipeData.Search(SearchText);
             }
         }
     }

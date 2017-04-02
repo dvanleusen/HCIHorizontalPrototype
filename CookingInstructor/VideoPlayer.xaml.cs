@@ -42,31 +42,40 @@ namespace CookingInstructor
         public VideoPlayer()
         {
             InitializeComponent();
-            DataContext = new VideoPlayerViewModel();
+            Play = false;
+            DataContext = this;
+            Slider.Minimum = 0;
+            if (Media.NaturalDuration.HasTimeSpan)
+            {
+                Slider.Maximum = Media.NaturalDuration.TimeSpan.TotalMilliseconds;
+            }
+        }
 
-            Media.MediaOpened += (o, e)=>{
-                Slider.Maximum = Media.NaturalDuration.TimeSpan.Seconds;
-            };
+        private Boolean play;
+        public Boolean Play
+        {
+            get { return play; }
+            set { play = value; }
         }
 
         
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //Slider slr = sender as Slider;
-            //TimeSpan curTime = Media.NaturalDuration.TimeSpan;
-            //Media.Position = TimeSpan.FromMilliseconds(curTime.Milliseconds + slr.Value * (curTime.TotalMilliseconds/slr.Maximum));
+            Media.Position = TimeSpan.FromMilliseconds(Slider.Value);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            VideoPlayerViewModel v = DataContext as VideoPlayerViewModel;
-            if (v.Play)
+            Play = !Play;
+            if (!Play)
             {
                 Media.Pause();
+                buttonImage.Source = new BitmapImage(new Uri("pack://application:,,,/tutorial.png"));
             }
             else
             {
                 Media.Play();
+                buttonImage.Source = new BitmapImage(new Uri("pack://application:,,,/pause.png"));
             }
         }
     }

@@ -7,41 +7,27 @@
              xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400">
-
-    <UserControl.DataContext>
-        <vm:VideoPlayerViewModel/>
-    </UserControl.DataContext>
-    
-    <Grid Name="Panel">
+    <Grid Name="Panel" Margin="10">
+        
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
-        <MediaElement LoadedBehavior="Manual" Name="Media" Grid.Row="0" Stretch="None" Source="{Binding Path=Video}"/>
+        
+        <MediaElement LoadedBehavior="Manual" UnloadedBehavior="Stop" Name="Media" Grid.Row="0" Source="{Binding Video}"/>
 
-        <Button Grid.Row="0" Height="25" Width="25" Background="#00DDDDDD" BorderBrush="#00707070"></Button>
         <Grid Grid.Row="1">
+            
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.1*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="0" Click="Button_Click" Command="{Binding ButtonPressed}">
-                <Image Height="20">
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Play}" Value="True">
-                                    <Setter Property="Source" Value="icon-pause-128.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Play}" Value="False">
-                                    <Setter Property="Source" Value="play-xxl.png"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
+            
+            <Button Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="0" Click="Button_Click">
+                <Image Name="buttonImage" Source="tutorial.png"/>
             </Button>
-            <Slider Name="Slider" Grid.Column="1" Minimum="0" Maximum="{Binding ElementName=Media, Path=NaturalDuration.TimeSpan.TotalSeconds}" Value="{Binding ElementName=Media, Path=Position.Seconds, Mode=OneWay}" ValueChanged="Slider_ValueChanged"></Slider>
+            <Slider Name="Slider" VerticalAlignment="Center" Grid.Column="1" 
+                    ValueChanged="Slider_ValueChanged"/>
         </Grid>
        
     </Grid>

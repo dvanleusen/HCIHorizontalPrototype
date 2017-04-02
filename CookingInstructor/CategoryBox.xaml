@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="CookingInstructor.CategoryBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CookingInstructor"
+             xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="220" d:DesignWidth="500">
+    <UserControl.DataContext>
+        <vm:MainWindowViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Margin="0,2,0,0">
+        <StackPanel>
+            <TextBlock Text="{Binding CategoryName}" Margin="5,0,0,5" Style="{StaticResource SubSubTitle}"></TextBlock>
+            <Grid> 
+                <ListBox BorderBrush="{x:Null}" Background="{x:Null}" ItemsSource="{Binding RecipeIcons}" ItemTemplate="{StaticResource RecipeIcon}" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                
+                <Button HorizontalAlignment="Left" Background="#00DDDDDD" BorderBrush="#00707070" Width="28" Foreground="#00000000" MouseLeave="Button_MouseLeave" MouseEnter="Button_MouseEnter" Click="leftPressed" Opacity="0">
+                    <Image Source="arrowTab.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                <SkewTransform AngleY="0" AngleX="0"/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                
+                <Button HorizontalAlignment="Right" Background="#00DDDDDD" BorderBrush="#00707070" Width="28" Foreground="#00000000" MouseLeave="Button_MouseLeave" MouseEnter="Button_MouseEnter" Click="rightPressed" Opacity="0">
+                    <Image Source="arrowTab.png" Stretch="Fill"></Image>
+                </Button>
+                
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

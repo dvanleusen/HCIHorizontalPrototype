@@ -1,0 +1,11 @@
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\CookingInstructorViewModel.dll
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\CookingInstructorViewModel.pdb
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\CookingInstructorModel.dll
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\CookingInstructorModel.pdb
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\obj\Debug\CookingInstructorViewModel.csprojResolveAssemblyReference.cache
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\obj\Debug\CookingInstructorViewModel.dll
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\obj\Debug\CookingInstructorViewModel.pdb
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\ashle_000\Documents\Visual Studio 2015\Projects\CookingInstructor\CookingInstructorViewModel\bin\Debug\System.Windows.Interactivity.xml

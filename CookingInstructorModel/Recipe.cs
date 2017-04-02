@@ -23,7 +23,7 @@ namespace CookingInstructorModel
         public int ServingSize
         {
             get { return servingSize; }
-            set { servingSize = value; }
+            set { servingSize = value;}
         }
 
         public void AdjustServingSize(int serves)
@@ -85,6 +85,12 @@ namespace CookingInstructorModel
         {
            get { return videoPath; }
             set { videoPath = value; }
+        }
+        private Boolean fave;
+        public Boolean inFavourites
+        {
+            get { return fave; }
+            set { fave = value; }
         }
 
     }

@@ -14,34 +14,34 @@
     
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"></RowDefinition>
-            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column = "0" Orientation="Horizontal">
                 <StackPanel Margin="0,0,10,0" >
-                    <TextBlock Text="Search" Style="{StaticResource SubSubTitle}" Margin="0,0,0,5" ></TextBlock>
+                    <TextBlock Text="Search" Style="{StaticResource SubSubTitle}" Margin="0,0,0,5"/>
                     <Grid>
-                        <TextBox Text="{Binding SearchText, Mode=TwoWay}" Width="200" Height="20"></TextBox>
+                        <TextBox Text="{Binding SearchText, Mode=TwoWay}" Width="200" Height="20"/>
                         <Button Command="{Binding ButtonPressed}" CommandParameter="SearchEntry" 
                                 Background="{x:Null}" 
                                 BorderBrush="{x:Null}" 
                                 HorizontalAlignment="Right" Width="20">
-                            <Image Source="smallsearch.png"></Image>
+                            <Image Source="smallsearch.png"/>
                         </Button>
                     </Grid>
 
                 </StackPanel>
 
                 <StackPanel Margin="0,0,10,0">
-                    <TextBlock Text="Sort By" Style="{StaticResource SubSubTitle}" Margin="0,0,0,5" ></TextBlock>
+                    <TextBlock Text="Sort By" Style="{StaticResource SubSubTitle}" Margin="0,0,0,5" />
                     <ComboBox ItemsSource="{Binding SortByOptions}" 
                               SelectedItem="{Binding SortRecipesBy, Mode=TwoWay}" 
                               Width="100" Grid.Column="1"  Height="20">
@@ -56,7 +56,7 @@
             </StackPanel>
         </Grid>
 
-        <TextBlock Grid.Row="1" Text="Results" Style="{StaticResource SubSubTitle}"></TextBlock>
+        <TextBlock Grid.Row="1" Text="Results" Style="{StaticResource SubSubTitle}"/>
         <ListBox BorderBrush="{x:Null}" Background="{x:Null}" Grid.Row="2" 
                  SelectedItem ="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}},Path= DataContext.SelectedRecipe, Mode=TwoWay}" 
                  ItemsSource="{Binding Recipes}" 
@@ -65,7 +65,7 @@
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel></WrapPanel>
+                    <WrapPanel/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>

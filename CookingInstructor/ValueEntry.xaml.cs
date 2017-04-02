@@ -26,7 +26,7 @@ namespace CookingInstructor
         }
 
         #region Value DP
-        public static DependencyProperty ValueElement = DependencyProperty.Register
+        public static readonly DependencyProperty ValueElement = DependencyProperty.Register
             (
                  "Value",
                  typeof(string),
