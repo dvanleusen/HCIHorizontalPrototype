@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CookingInstructorViewModel;
+using System.Windows.Threading;
+using System.Windows.Controls.Primitives;
 
 namespace CookingInstructor
 {
@@ -21,7 +23,6 @@ namespace CookingInstructor
     /// </summary>
     public partial class VideoPlayer : UserControl
     {
-
         #region Video DP
         public static readonly DependencyProperty VideoElement = DependencyProperty.Register
             (
@@ -38,17 +39,16 @@ namespace CookingInstructor
         }
 
         #endregion
-
+        private DispatcherTimer timer;
+        private Boolean isDragging;
         public VideoPlayer()
         {
             InitializeComponent();
             Play = false;
+            timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timer_Tick);
+            isDragging = false;
             DataContext = this;
-            Slider.Minimum = 0;
-            if (Media.NaturalDuration.HasTimeSpan)
-            {
-                Slider.Maximum = Media.NaturalDuration.TimeSpan.TotalMilliseconds;
-            }
         }
 
         private Boolean play;
@@ -58,25 +58,59 @@ namespace CookingInstructor
             set { play = value; }
         }
 
-        
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            Media.Position = TimeSpan.FromMilliseconds(Slider.Value);
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Play = !Play;
             if (!Play)
             {
                 Media.Pause();
+                timer.Stop();
                 buttonImage.Source = new BitmapImage(new Uri("pack://application:,,,/tutorial.png"));
             }
             else
             {
                 Media.Play();
+                timer.Start();
                 buttonImage.Source = new BitmapImage(new Uri("pack://application:,,,/pause.png"));
             }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (!isDragging)
+            {
+                Slider.Value = Media.Position.TotalSeconds;
+            }
+
+        }
+
+private void seekBar_DragStarted(object sender, DragStartedEventArgs e)
+{
+    isDragging = true;
+
+}
+
+ 
+private void seekBar_DragCompleted(object sender, DragCompletedEventArgs e)
+{
+
+    isDragging = false;
+
+    Media.Position = TimeSpan.FromSeconds(Slider.Value);
+}
+
+private void Media_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            if (Media.NaturalDuration.HasTimeSpan)
+            {
+
+                TimeSpan ts = Media.NaturalDuration.TimeSpan;
+                Slider.Maximum = ts.TotalSeconds;
+                Slider.SmallChange = 1;
+                Slider.LargeChange = Math.Min(10, ts.Seconds / 10);
+                timer.Interval = TimeSpan.FromMilliseconds(ts.TotalMilliseconds);
+            }
+            timer.Start();
         }
     }
 }

@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("cornsalad.wmv")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("lemonchicken.wmv")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("tiramisu.wmv")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("chickenvid.wmv")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("chickenvid.mp4")]
 

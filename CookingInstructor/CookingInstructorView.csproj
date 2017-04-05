@@ -232,6 +232,10 @@
     <Resource Include="recent9.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="applyicon.png" />
+    <Content Include="cornSalad.wmv" />
+    <Content Include="lemonChicken.wmv" />
+    <Content Include="tiramisu.wmv" />
     <Resource Include="pause.png" />
     <Resource Include="smallsearch.png" />
     <Resource Include="remove_bookmark.png" />
@@ -241,6 +245,7 @@
     <Resource Include="arrow.png" />
     <Resource Include="bookmark.png" />
     <Resource Include="arrow_flip.png" />
+    <Resource Include="add_bookmark.png" />
     <Content Include="chickenvid.wmv" />
     <Content Include="chickenvid.mp4" />
   </ItemGroup>

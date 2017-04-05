@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,15 @@ namespace CookingInstructorModel
 {
     public class Ingredient
     {
-        public Ingredient(Double quantity, String item, List<Ingredient> subs)
+        public Ingredient(Double quantity, String item, ObservableCollection<Ingredient> subs)
         {
             Quantity = quantity;
             Item = item;
             Substitutions = subs;
+        }
+        public Ingredient(Ingredient i):this(i.Quantity, i.Item, i.SubstitutionsSafe)
+        {
+
         }
         private Double quantity;
         public Double Quantity{
@@ -25,19 +30,45 @@ namespace CookingInstructorModel
             get { return item; }
             set { item = value; }
         }
-        private List<Ingredient> substitutions;
-        public List<Ingredient> Substitutions
+        private ObservableCollection<Ingredient> substitutions;
+        public ObservableCollection<Ingredient> Substitutions
         {
             get { return substitutions; }
             set { substitutions = value; }
-        } 
-        public void Adjust(int val)
+        }
+        public ObservableCollection<Ingredient> SubstitutionsSafe
+        {
+            get
+            {
+                if(Substitutions != null)
+                {
+                    ObservableCollection<Ingredient> temp = new ObservableCollection<Ingredient>();
+                    foreach (Ingredient i in Substitutions)
+                    {
+                        temp.Add(new Ingredient(i));
+
+                    }
+                    return temp;
+                }
+
+                return null;   
+            }
+        }
+
+        public Boolean HasSubstitutions
+        {
+            get { return Substitutions.Count > 0; }
+        }
+        public void Adjust(Double val)
         {
             Quantity *= val;
-            foreach(Ingredient i in Substitutions)
+            if(Substitutions != null)
             {
-                i.Adjust(val);
-            }
+                foreach (Ingredient i in Substitutions)
+                {
+                    i.Adjust(val);
+                }
+            } 
         }
         public String Content
         {

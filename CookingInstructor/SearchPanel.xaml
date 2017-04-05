@@ -7,11 +7,10 @@
              xmlns:vm="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
+
     <UserControl.DataContext>
         <vm:MainWindowViewModel/>
     </UserControl.DataContext>
-    
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
@@ -69,6 +68,28 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RecipesEmpty}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Setter Property="Text" Value="No Results Found"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RecipesEmpty}" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SearchText}" Value="">
+                            <Setter Property="Text" Value="Enter Search Terms"/>
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+            
+            
+            
+        </TextBlock>
+
     </Grid>
 </UserControl>

@@ -21,7 +21,9 @@ namespace CookingInstructorViewModel
         private Recipe selectedRecipe;
         private String sortRecipesBy;
         private String searchText;
+        private Boolean error;
         private readonly ObservableCollection<String> sortByOptions;
+        private Boolean selectedInFavourites;
 
         public MainWindowViewModel()
         {
@@ -31,10 +33,9 @@ namespace CookingInstructorViewModel
             SelectedRecipe = null;
             sortByOptions = new ObservableCollection<string> { "Cook Time", "Prep Time", "A-Z", "Z-A", "Relevance" };
             SortRecipesBy = "Relevance";
-            SearchText = "Search";
+            SearchText = "";
             Recipes = new ObservableCollection<Recipe>();
-            Categories = Data.Instance.GetCategories();
-            
+            Categories = recipeData.GetCategories();
             buttonPressCommand = new DelegateCommand<string>(buttonPress);
         }
 
@@ -73,20 +74,112 @@ namespace CookingInstructorViewModel
             }
         }
 
+        public Boolean RecipesEmpty
+        {
+            get { return Recipes.Count == 0; }
+        }
+
         public Recipe SelectedRecipe
         {
             set {
-
                 if (value != null)
                 {
                     selectedRecipe = value;
                     OnPropertyChanged("SelectedRecipe");
                     PageState = State.Recipe;
+                    SelectedInFavourites = recipeData.Contains("My Recipes", SelectedRecipe);
+                    SelectedRecipeTitle = selectedRecipe.Title;
+                    SelectedRecipeCookTime = selectedRecipe.CookTime;
+                    SelectedRecipePrepTime = selectedRecipe.PrepTime;
+                    SelectedRecipeTotalTime = selectedRecipe.TotalTime;
+                    SelectedRecipeVideoPath = selectedRecipe.VideoPath;
+                    SelectedRecipeIngredients = selectedRecipe.IngredientsSafe;
+                    SelectedRecipeInstructions = selectedRecipe.Instructions;
+                    SelectedRecipeServingSize = selectedRecipe.ServingSize;
                 }
             }
             get {return selectedRecipe; }
         }
 
+        private int serves;
+        public int SelectedRecipeServingSize
+        {
+            get { return serves; }
+            set
+            { serves = value;
+                OnPropertyChanged("SelectedRecipeServingSize");
+            }
+        }
+        private String title;
+        public String SelectedRecipeTitle
+        {
+            get { return title; }
+            set
+            {
+                title = value;
+                OnPropertyChanged("SelectedRecipeTitle");
+            }
+        }
+        private String cookT;
+        public String SelectedRecipeCookTime
+        {
+            get { return cookT; }
+            set
+            {
+                cookT = value;
+                OnPropertyChanged("SelectedRecipeCookTime");
+            }
+        }
+        private String prepTime;
+        public String SelectedRecipePrepTime
+        {
+            get { return prepTime; }
+            set { prepTime = value;
+                OnPropertyChanged("SelectedRecipePrepTime");
+            }
+        }
+
+        private String totTime;
+        public String SelectedRecipeTotalTime
+        {
+            get { return totTime; }
+            set { totTime = value;
+                OnPropertyChanged("SelectedRecipeTotalTime");
+            }
+        }
+        private String vidPath;
+        public String SelectedRecipeVideoPath
+        {
+            get { return vidPath; }
+            set { vidPath = value;
+                OnPropertyChanged("SelectedRecipeVideoPath");
+            }
+        }
+        private ObservableCollection<String> instruct;
+        public ObservableCollection<String> SelectedRecipeInstructions
+        {
+            get { return instruct; }
+            set { instruct = value;
+                OnPropertyChanged("SelectedRecipeInstructions");
+            }
+        }
+        private ObservableCollection<Ingredient> ingredient;
+        public ObservableCollection<Ingredient> SelectedRecipeIngredients
+        {
+            get { return ingredient; }
+            set
+            {
+                ingredient = value;
+                OnPropertyChanged("SelectedRecipeIngredients");
+            }
+        }
+        public Boolean SelectedInFavourites
+        {
+            get { return selectedInFavourites; }
+            set { selectedInFavourites = value;
+                OnPropertyChanged("SelectedInFavourites");
+            }
+        }
         public String SortRecipesBy
         {
             get { return sortRecipesBy; }
@@ -113,10 +206,12 @@ namespace CookingInstructorViewModel
         {
             if (btn.Equals("Search"))
             {
+                OnPropertyChanged("RecipesEmpty");
                 PageState = State.Search;
             }
             else if (btn.Equals("Groups"))
             {
+                Categories = recipeData.GetCategories();
                 PageState = State.Groups;
             }
             else if (btn.Equals("Tutorial"))
@@ -125,23 +220,42 @@ namespace CookingInstructorViewModel
             }
             else if (btn.Equals("Fave"))
             {
-                if(Data.Instance.Contains("My Recipes", SelectedRecipe))
+
+                if(recipeData.Contains("My Recipes", SelectedRecipe))
                 {
                     recipeData.Remove("My Recipes", SelectedRecipe);
-                    SelectedRecipe.inFavourites = false;
+                    SelectedInFavourites = false;
                 }
                 else
                 {
                     recipeData.Add("My Recipes", SelectedRecipe);
-                    SelectedRecipe.inFavourites = true;
+                    SelectedInFavourites = true;
                 }
                 Categories = recipeData.GetCategories();
-                OnPropertyChanged("SelectedRecipe");
             }
             else if (btn.Equals("SearchEntry"))
             {
                 Recipes = recipeData.Search(SearchText);
+                OnPropertyChanged("RecipesEmpty");
+            }
+            else if (btn.Equals("Serves"))
+            {
+                AdjustServingSize(SelectedRecipeServingSize);
             }
         }
+
+        private void AdjustServingSize(int newVal)
+        {
+            ObservableCollection<Ingredient> temp = selectedRecipe.IngredientsSafe;
+            if (SelectedRecipeServingSize != 0)
+            {
+                foreach (Ingredient i in temp)
+                {
+                    i.Adjust((Double)newVal / (Double)selectedRecipe.ServingSize);
+                }
+            }
+            SelectedRecipeIngredients = temp;
+        }
+
     }
 }

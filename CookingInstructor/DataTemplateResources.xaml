@@ -80,14 +80,17 @@
         <local:SearchPanel/>
     </DataTemplate>
 
-    <DataTemplate x:Key="CategoryPanel" DataType="{x:Type vm:MainWindowViewModel}" >
-        <ListBox BorderBrush="{x:Null}" Background="{x:Null}" ItemContainerStyle="{StaticResource ListBoxNoHover}" ItemsSource="{Binding Categories}" ItemTemplate="{StaticResource CategoryBox}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-          
+    <DataTemplate x:Key="CategoryPanel">
+        <ListBox BorderBrush="{x:Null}" Background="{x:Null}" 
+                 ItemContainerStyle="{StaticResource ListBoxNoHover}" 
+                 ItemsSource="{Binding Categories}" 
+                 ItemTemplate="{StaticResource CategoryBox}" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         </ListBox>
     </DataTemplate>
 
-    <DataTemplate x:Key ="RecipePage" DataType="{x:Type vm:MainWindowViewModel}">
-        <local:RecipePage DataContext="{Binding SelectedRecipe}"/>
+    <DataTemplate x:Key ="RecipePage">
+        <local:RecipePage/>
     </DataTemplate>
 
 </ResourceDictionary>

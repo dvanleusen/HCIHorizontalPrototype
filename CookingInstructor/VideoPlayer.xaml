@@ -14,7 +14,7 @@
             <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
         
-        <MediaElement LoadedBehavior="Manual" UnloadedBehavior="Stop" Name="Media" Grid.Row="0" Source="{Binding Video}"/>
+        <MediaElement LoadedBehavior="Manual" UnloadedBehavior="Stop" MediaOpened="Media_MediaOpened" Name="Media" Grid.Row="0" Source="{Binding Video}"/>
 
         <Grid Grid.Row="1">
             
@@ -26,8 +26,8 @@
             <Button Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="0" Click="Button_Click">
                 <Image Name="buttonImage" Source="tutorial.png"/>
             </Button>
-            <Slider Name="Slider" VerticalAlignment="Center" Grid.Column="1" 
-                    ValueChanged="Slider_ValueChanged"/>
+            <Slider Width="{Binding ElementName=Media, Path=Width}" Name="Slider" VerticalAlignment="Center" Grid.Column="1" 
+                  Thumb.DragStarted="seekBar_DragStarted" Thumb.DragCompleted="seekBar_DragCompleted"/>
         </Grid>
        
     </Grid>
