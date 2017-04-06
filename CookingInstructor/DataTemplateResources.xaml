@@ -90,7 +90,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key ="RecipePage">
-        <local:RecipePage/>
+        <local:RecipePage Width="Auto" Height="Auto"/>
     </DataTemplate>
 
 </ResourceDictionary>

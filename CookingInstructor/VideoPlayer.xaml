@@ -6,27 +6,24 @@
              xmlns:local="clr-namespace:CookingInstructor"
              xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
              mc:Ignorable="d" 
+             x:Name="VidPlayer"
              d:DesignHeight="300" d:DesignWidth="400">
-    <Grid Name="Panel" Margin="10">
-        
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0.15*"/>
-        </Grid.RowDefinitions>
-        
-        <MediaElement LoadedBehavior="Manual" UnloadedBehavior="Stop" MediaOpened="Media_MediaOpened" Name="Media" Grid.Row="0" Source="{Binding Video}"/>
-
-        <Grid Grid.Row="1">
-            
+    <Grid Name="Panel" Margin="10,0,10,10" Background="Black">
+        <MediaElement LoadedBehavior="Manual" 
+                      UnloadedBehavior="Stop" 
+                      MediaOpened="Media_MediaOpened" 
+                      Name="Media" 
+                      Source="{Binding Video, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+        <Grid VerticalAlignment="Bottom" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             
             <Button Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="0" Click="Button_Click">
-                <Image Name="buttonImage" Source="tutorial.png"/>
+                <Image Name="buttonImage" MaxWidth="40" Source="tutorial.png"/>
             </Button>
-            <Slider Width="{Binding ElementName=Media, Path=Width}" Name="Slider" VerticalAlignment="Center" Grid.Column="1" 
+            <Slider Name="Slider" VerticalAlignment="Center" Grid.Column="1" 
                   Thumb.DragStarted="seekBar_DragStarted" Thumb.DragCompleted="seekBar_DragCompleted"/>
         </Grid>
        

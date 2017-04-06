@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CookingInstructorModel;
 using System.Collections.ObjectModel;
-
+using System.Text.RegularExpressions;
 
 namespace CookingInstructorViewModel
 {
@@ -28,6 +28,7 @@ namespace CookingInstructorViewModel
         public MainWindowViewModel()
         {
             recipeData = Data.Instance;
+            Error = false;
             TutorialOpen = false;
             PageState = State.Groups;
             SelectedRecipe = null;
@@ -95,18 +96,19 @@ namespace CookingInstructorViewModel
                     SelectedRecipeVideoPath = selectedRecipe.VideoPath;
                     SelectedRecipeIngredients = selectedRecipe.IngredientsSafe;
                     SelectedRecipeInstructions = selectedRecipe.Instructions;
-                    SelectedRecipeServingSize = selectedRecipe.ServingSize;
+                    SelectedRecipeServingSize = selectedRecipe.ServingSize.ToString();
+                    Error = false;
                 }
             }
             get {return selectedRecipe; }
         }
 
-        private int serves;
-        public int SelectedRecipeServingSize
+        private String serves;
+        public String SelectedRecipeServingSize
         {
             get { return serves; }
             set
-            { serves = value;
+          { serves = value;
                 OnPropertyChanged("SelectedRecipeServingSize");
             }
         }
@@ -200,6 +202,13 @@ namespace CookingInstructorViewModel
                 OnPropertyChanged("SearchText");
             }
         }
+        public Boolean Error
+        {
+            set { error = value;
+                OnPropertyChanged("Error");
+            }
+            get { return error; }
+        }
 
 
         private void buttonPress(string btn)
@@ -240,14 +249,22 @@ namespace CookingInstructorViewModel
             }
             else if (btn.Equals("Serves"))
             {
-                AdjustServingSize(SelectedRecipeServingSize);
+                if (validInput(SelectedRecipeServingSize))
+                {
+                    AdjustServingSize(Convert.ToInt32(SelectedRecipeServingSize));
+                    Error = false;
+                }
+                else
+                {
+                    Error = true;
+                }
             }
         }
 
         private void AdjustServingSize(int newVal)
         {
             ObservableCollection<Ingredient> temp = selectedRecipe.IngredientsSafe;
-            if (SelectedRecipeServingSize != 0)
+            if (selectedRecipe.ServingSize != 0)
             {
                 foreach (Ingredient i in temp)
                 {
@@ -255,6 +272,17 @@ namespace CookingInstructorViewModel
                 }
             }
             SelectedRecipeIngredients = temp;
+        }
+
+        private Boolean validInput(String input)
+        {
+            if (input[0] == '0') return false;
+            foreach(Char c in input)
+            {
+                if (c < '/' || c > ':') return false;
+            }
+
+            return true;
         }
 
     }

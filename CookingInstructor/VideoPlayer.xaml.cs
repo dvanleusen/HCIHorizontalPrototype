@@ -29,8 +29,14 @@ namespace CookingInstructor
                  "Video",
                  typeof(string),
                  typeof(VideoPlayer),
-                 new PropertyMetadata("")
+                 new UIPropertyMetadata("", Changed)
             );
+
+        private static void Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+           
+        }
+        #endregion
 
         public string Video
         {
@@ -38,7 +44,6 @@ namespace CookingInstructor
             set { SetValue(VideoElement, value); }
         }
 
-        #endregion
         private DispatcherTimer timer;
         private Boolean isDragging;
         public VideoPlayer()
@@ -48,7 +53,7 @@ namespace CookingInstructor
             timer = new DispatcherTimer();
             timer.Tick += new EventHandler(timer_Tick);
             isDragging = false;
-            DataContext = this;
+            //DataContext = this;
         }
 
         private Boolean play;

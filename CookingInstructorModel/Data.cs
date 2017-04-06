@@ -103,20 +103,20 @@ namespace CookingInstructorModel
 
             //Lemon Chicken (in Recent and Chicken categories)
             ObservableCollection<String> instLemonChicken = new ObservableCollection<String>();
-            instLemonChicken.Add("1. Mix 1 tbsp of soy sauce with 1 lb of chicken breast");
-            instLemonChicken.Add("2. Sprinkle 1 tbsp of salt and pepper on top");
-            instLemonChicken.Add("3. Add 1 egg to the meat and mix well with a spoon");
-            instLemonChicken.Add("4. Add 3 tbsps of corn starch and mix again with a spoon");
+            instLemonChicken.Add("Mix 1 tbsp of soy sauce with 1 lb of chicken breast");
+            instLemonChicken.Add("Sprinkle 1 tbsp of salt and pepper on top");
+            instLemonChicken.Add("Add 1 egg to the meat and mix well with a spoon");
+            instLemonChicken.Add("Add 3 tbsps of corn starch and mix again with a spoon");
             instLemonChicken.Add("Note: Chicken should be well coated at this time");
-            instLemonChicken.Add("5. Heat up some oil on medium or high heat for frying");
-            instLemonChicken.Add("6. Fry each piece thoroughly for 7-8 minutes until the coating turn golden brown");
-            instLemonChicken.Add("7. Put the chicken aside");
-            instLemonChicken.Add("8. Add 1 tbsp of oil to the pot, and heat up on medium or high heat");
-            instLemonChicken.Add("9. Add 1 cup of chicken stock, 1/4 cup of lemon juice, 2 tbsps of sugar, 1 tbsp of honey, and 3 tbsps of slurry to the pot");
+            instLemonChicken.Add("Heat up some oil on medium or high heat for frying");
+            instLemonChicken.Add("Fry each piece thoroughly for 7-8 minutes until the coating turn golden brown");
+            instLemonChicken.Add("Put the chicken aside");
+            instLemonChicken.Add("Add 1 tbsp of oil to the pot, and heat up on medium or high heat");
+            instLemonChicken.Add("Add 1 cup of chicken stock, 1/4 cup of lemon juice, 2 tbsps of sugar, 1 tbsp of honey, and 3 tbsps of slurry to the pot");
             instLemonChicken.Add("Note: If you want, you may add a few slices of lemon");
-            instLemonChicken.Add("10. Boil 5-7 minutes for thicker consistency");
-            instLemonChicken.Add("11. Add approximately 1/4 cup of lemon zest for color and flavor");
-            instLemonChicken.Add("12. Add desired amount of sauce to the chicken and mix well");
+            instLemonChicken.Add("Boil 5-7 minutes for thicker consistency");
+            instLemonChicken.Add("Add approximately 1/4 cup of lemon zest for color and flavor");
+            instLemonChicken.Add("Add desired amount of sauce to the chicken and mix well");
 
             ObservableCollection<Ingredient> ingLemonChicken = new ObservableCollection<Ingredient>
             {
@@ -136,21 +136,21 @@ namespace CookingInstructorModel
 
             //Roast Chicken (in Chicken catergory)
             ObservableCollection<String> instRoastChicken = new ObservableCollection<String>();
-            instRoastChicken.Add("1. Cut potatoes into wedges and lie them evenly in a deep baking dish");
-            instRoastChicken.Add("2. Add 1 cup of baby carrots or any vegetables of your choice to the dish");
-            instRoastChicken.Add("3. Sprinkle 2 tbsps of salt and pepper evenly on top of veggies");
-            instRoastChicken.Add("4. Add 1 tbsp of olive oil and mix the veggies well");
-            instRoastChicken.Add("5. Put the dish aside and prepare the spice mix");
-            instRoastChicken.Add("6. Add 1 tbsp of chilli powder, 1 tbsp of garlic powder, 1 tbsp of salt and pepper into an empty bowl, and mix well");
-            instRoastChicken.Add("7. Now prepare the chicken by cutting wing tips");
-            instRoastChicken.Add("8. Smudge a even layer of olive oil on the chicken");
-            instRoastChicken.Add("9. Sprinkle the prepared spice mix onto the chicken evenly, smudge a little if necessary");
-            instRoastChicken.Add("10. Cut the lemon in half and squeeze its juice into the chicken");
-            instRoastChicken.Add("11. Cut the onion inhalf and stuff the chicken along with 4-5 garlic cloves");
-            instRoastChicken.Add("12. Tie the legs with aluminum string or foil");
-            instRoastChicken.Add("13. Place the chicken into the deep baking dish, breast side up");
-            instRoastChicken.Add("14. Preheat oven at 385 F");
-            instRoastChicken.Add("15. Bake for 90 minutes");
+            instRoastChicken.Add("Cut potatoes into wedges and lie them evenly in a deep baking dish");
+            instRoastChicken.Add("Add 1 cup of baby carrots or any vegetables of your choice to the dish");
+            instRoastChicken.Add("Sprinkle 2 tbsps of salt and pepper evenly on top of veggies");
+            instRoastChicken.Add("Add 1 tbsp of olive oil and mix the veggies well");
+            instRoastChicken.Add("Put the dish aside and prepare the spice mix");
+            instRoastChicken.Add("Add 1 tbsp of chilli powder, 1 tbsp of garlic powder, 1 tbsp of salt and pepper into an empty bowl, and mix well");
+            instRoastChicken.Add("Now prepare the chicken by cutting wing tips");
+            instRoastChicken.Add("Smudge a even layer of olive oil on the chicken");
+            instRoastChicken.Add("Sprinkle the prepared spice mix onto the chicken evenly, smudge a little if necessary");
+            instRoastChicken.Add("Cut the lemon in half and squeeze its juice into the chicken");
+            instRoastChicken.Add("Cut the onion inhalf and stuff the chicken along with 4-5 garlic cloves");
+            instRoastChicken.Add("Tie the legs with aluminum string or foil");
+            instRoastChicken.Add("Place the chicken into the deep baking dish, breast side up");
+            instRoastChicken.Add("Preheat oven at 385 F");
+            instRoastChicken.Add("Bake for 90 minutes");
 
             ObservableCollection<Ingredient> ingRoastChicken = new ObservableCollection<Ingredient>
             {
@@ -170,14 +170,14 @@ namespace CookingInstructorModel
 
             //Corn Salad (in Vegan catergory)
             ObservableCollection<String> instCornSalad = new ObservableCollection<String>();
-            instCornSalad.Add("1. Boil corns for 10 minutes, then cut off kernels");
-            instCornSalad.Add("2. Chop up scallions, tomatoes, parsley, and cilantro");
-            instCornSalad.Add("3. Chop up jalapeno and clean out seeds");
-            instCornSalad.Add("4. Mix all veggies well in a bowl");
-            instCornSalad.Add("5. Cut a lime into half, and squeeze its juice into the bowl");
-            instCornSalad.Add("6. Add a few drops of olive oil");
-            instCornSalad.Add("7. Add a tbsp of salt and pepper");
-            instCornSalad.Add("8. Mix the sald well and evenly");
+            instCornSalad.Add("Boil corns for 10 minutes, then cut off kernels");
+            instCornSalad.Add("Chop up scallions, tomatoes, parsley, and cilantro");
+            instCornSalad.Add("Chop up jalapeno and clean out seeds");
+            instCornSalad.Add("Mix all veggies well in a bowl");
+            instCornSalad.Add("Cut a lime into half, and squeeze its juice into the bowl");
+            instCornSalad.Add("Add a few drops of olive oil");
+            instCornSalad.Add("Add a tbsp of salt and pepper");
+            instCornSalad.Add("Mix the sald well and evenly");
             instCornSalad.Add("Note: You can put it into the fridge for 15 minutes to bring out the flavours further");
 
             ObservableCollection<Ingredient> ingCornSalad = new ObservableCollection<Ingredient>
@@ -195,25 +195,24 @@ namespace CookingInstructorModel
 
             //Tiramisu (in Dessert catergory)
             ObservableCollection<String> instTiramisu = new ObservableCollection<String>();
-            instTiramisu.Add("1. Boil 1/2 cup of water and dissolve 2 tbsps of instant espresso, mix well");
-            instTiramisu.Add("2. Optionally, add 50 mLs of Kahlua to the espresso, mix well and let it cool");
-            instTiramisu.Add("3. In a different bowl, mix 6 egg yolks together well and evenly");
-            instTiramisu.Add("4. Add 1 cup of sugar to the mixture");
-            instTiramisu.Add("5. Slowly heat the mixture up on extremely low heat for about 10 minutes while mixing, until the mixture becomes smooth");
-            instTiramisu.Add("Note: if the mixture becomes too thick, add 2 tbsps of milk");
-            instTiramisu.Add("6. Let the mixture cooldown, usually should take about 10 minutes as well");
-            instTiramisu.Add("7. Add 1 cup of heavy cream to another empty bowl");
-            instTiramisu.Add("8. Use a mixer or hand mixer to evenly mix the cream");
-            instTiramisu.Add("9. While mixing, add a tbsp of vanilla extract");
-            instTiramisu.Add("10. Mix until you have a nice thick texture for whipped cream");
-            instTiramisu.Add("11. Add about 8 ozs of mascarpone cheese to the cooled egg yolk mixture, mix well");
-            instTiramisu.Add("12. Add whipped cream, and fold the cream in with the mixture, mix well");
-            instTiramisu.Add("13. Soak 2 boxes of Lady Fingers in the expresso mixture for no more than 2 seconds");
-            instTiramisu.Add("14. Put a layer of Lady Fingers at the bottom of a deep baking dish");
-            instTiramisu.Add("15. Evenly put a layer of the mixture over the Lady Fingers");
-            instTiramisu.Add("16. Repeat the layers of Lady Fingers and the mixture on top");
-            instTiramisu.Add("17. Cover the baking dish with aluminum oil and freeze for at least 8 hours");
-            instTiramisu.Add("18. Spread a tbsp of coco powder on each slice of tiramisu");
+            instTiramisu.Add("Boil 1/2 cup of water and dissolve 2 tbsps of instant espresso, mix well");
+            instTiramisu.Add("Optionally, add 50 mLs of Kahlua to the espresso, mix well and let it cool");
+            instTiramisu.Add("In a different bowl, mix 6 egg yolks together well and evenly");
+            instTiramisu.Add("Add 1 cup of sugar to the mixture");
+            instTiramisu.Add("Slowly heat the mixture up on extremely low heat for about 10 minutes while mixing, until the mixture becomes smooth.\nNote: if the mixture becomes too thick, add 2 tbsps of milk.");
+            instTiramisu.Add("Let the mixture cooldown, usually should take about 10 minutes as well");
+            instTiramisu.Add("Add 1 cup of heavy cream to another empty bowl");
+            instTiramisu.Add("Use a mixer or hand mixer to evenly mix the cream");
+            instTiramisu.Add("While mixing, add a tbsp of vanilla extract");
+            instTiramisu.Add("Mix until you have a nice thick texture for whipped cream");
+            instTiramisu.Add("Add about 8 ozs of mascarpone cheese to the cooled egg yolk mixture, mix well");
+            instTiramisu.Add("Add whipped cream, and fold the cream in with the mixture, mix well");
+            instTiramisu.Add("Soak 2 boxes of Lady Fingers in the expresso mixture for no more than 2 seconds");
+            instTiramisu.Add("Put a layer of Lady Fingers at the bottom of a deep baking dish");
+            instTiramisu.Add("Evenly put a layer of the mixture over the Lady Fingers");
+            instTiramisu.Add("Repeat the layers of Lady Fingers and the mixture on top");
+            instTiramisu.Add("Cover the baking dish with aluminum oil and freeze for at least 8 hours");
+            instTiramisu.Add("Spread a tbsp of coco powder on each slice of tiramisu");
 
             ObservableCollection<Ingredient> ingTiramisu = new ObservableCollection<Ingredient>
             {

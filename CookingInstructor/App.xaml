@@ -9,6 +9,9 @@
                 <ResourceDictionary>
                     <BooleanToVisibilityConverter x:Key="BoolToVis" />
                 </ResourceDictionary>
+                <ResourceDictionary>
+                    <local:IndexConverter x:Key="ConvertIndex"/>
+                </ResourceDictionary>
                 <ResourceDictionary Source="ToolKitStyleResources.xaml"/>
                 <ResourceDictionary  Source="TextResources.xaml"/>
                 <ResourceDictionary Source="DataTemplateResources.xaml"/>
