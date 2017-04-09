@@ -4,21 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CookingInstructor"
-              xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
+             xmlns:vm ="clr-namespace:CookingInstructorViewModel;assembly=CookingInstructorViewModel"
              mc:Ignorable="d" 
-             Width="Auto" 
-             Height="Auto"
+             x:Name="Recipe"
              d:DesignHeight="534.666666666667" d:DesignWidth="768">
 
     <UserControl.Resources>
         <DataTemplate x:Key="IngredientFormat">
             <Grid Margin="0,0,0,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="{Binding Content}"/>
-                <Image Grid.Column="1" Height="16" Source="smallarrow.png"/>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Stretch"  Text="{Binding Content}"/>
+                <Image Grid.Column="1" HorizontalAlignment="Right" MaxHeight="16" Source="smallarrow.png"/>
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="SubFormat">
@@ -32,13 +31,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Margin="0,0,0,10" Grid.Row="0">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.05*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" BorderBrush="#00707070" Foreground="#FFFC900E" Background="#FFFC900E" CommandParameter="Fave" Command="{Binding ButtonPressed}">
+            <Button Grid.Column="0" 
+                    BorderBrush="#00707070" 
+                    Foreground="#FFFC900E" 
+                    Background="#FFFC900E" 
+                    CommandParameter="Fave" 
+                    Command="{Binding ButtonPressed}">
                 <Image MaxWidth="30">
                     <Image.Style>
                         <Style TargetType="Image">
@@ -69,18 +73,18 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <local:VideoPlayer Video="{Binding SelectedRecipeVideoPath}" Grid.Row="0"/>
+                <local:VideoPlayer Margin="5" Video="{Binding SelectedRecipeVideoPath}" Grid.Row="0"/>
 
                 <Grid Grid.Row="1" Background="White" Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="Ingredients" 
@@ -120,29 +124,31 @@
                     
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <ListBox Name="Ingredients" 
                                  Grid.Column="0" 
                                  ItemTemplate="{StaticResource IngredientFormat}" 
                                  ItemsSource="{Binding SelectedRecipeIngredients}" 
                                  Margin="10,10,0,10" 
-                                 ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                                  Background="{x:Null}" BorderThickness="0,1,0,0"/>
-                        <ListView Grid.Column="1" 
+                        <ListBox Grid.Column="1" 
                                   ItemTemplate="{StaticResource SubFormat}" 
                                   ItemsSource="{Binding ElementName=Ingredients, Path=SelectedItem.Substitutions}" 
                                   Margin="0, 10, 0, 0" BorderThickness="1"/>
-                        <TextBlock Grid.Column="1" Text="No Substitutions" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Grid.Column="1" Text="No Substitutions" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=Ingredients, Path=SelectedItem.HasSubstitutions}" Value="False">
+                                        <DataTrigger Binding="{Binding ElementName=Ingredients, 
+                                            Path=SelectedItem.HasSubstitutions}" Value="False">
                                             <Setter Property="Visibility" Value="Visible"/>
                                         </DataTrigger>
-                                        <DataTrigger Binding="{Binding ElementName=Ingredients, Path=SelectedItem.HasSubstitutions}" Value="True">
+                                        <DataTrigger Binding="{Binding ElementName=Ingredients, 
+                                            Path=SelectedItem.HasSubstitutions}" Value="True">
                                             <Setter Property="Visibility" Value="Hidden"/>
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -211,7 +217,7 @@
                         </ListBox>
                     </TabItem>
                     <TabItem Header="Notes">
-                        <TextBox VerticalAlignment="Stretch"></TextBox>
+                        <TextBox VerticalAlignment="Stretch"/>
                     </TabItem>
                 </TabControl>
             </Grid>

@@ -49,7 +49,7 @@
         <Grid>
             <StackPanel Background="#FFFAF8F5" Margin="10">
                 <Image Source="{Binding ImagePath}" MaxHeight="200" MaxWidth="200" Margin="5"/>
-                <TextBlock Text="{Binding Title}" MaxWidth="200" TextDecorations="{x:Null}"/>
+                <TextBlock Text="{Binding Title}" MaxWidth="200" Style="{StaticResource RecipeIconText}" TextDecorations="{x:Null}"/>
             </StackPanel>
         </Grid>
     </DataTemplate>
@@ -90,7 +90,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key ="RecipePage">
-        <local:RecipePage Width="Auto" Height="Auto"/>
+        <local:RecipePage/>
     </DataTemplate>
 
 </ResourceDictionary>

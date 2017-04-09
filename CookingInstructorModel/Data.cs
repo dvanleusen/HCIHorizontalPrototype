@@ -48,13 +48,48 @@ namespace CookingInstructorModel
             return cat;
         }
 
-        public ObservableCollection<Recipe> Search(String text)
+        private ObservableCollection<Recipe> safeList(ObservableCollection<Recipe> recipes)
+        {
+            ObservableCollection<Recipe> temp = new ObservableCollection<Recipe>();
+            foreach(Recipe r in recipes)
+            {
+                temp.Add(new Recipe(r));
+            }
+            return temp;
+        }
+        public ObservableCollection<Recipe> Search(String text, String sortBy)
         {
             if (Categories.ContainsKey(text))
             {
-                return Categories[text];
+                ObservableCollection<Recipe> temp =  safeList(Categories[text]);
+                if (sortBy.Equals("A-Z"))
+                {
+                    SortAlphabetical(temp, false);
+                }
+                else if (sortBy.Equals("Z-A"))
+                {
+                    SortAlphabetical(temp, true);
+                }
+                return temp;
             }
             return new ObservableCollection<Recipe>();
+        }
+
+        private void SortAlphabetical(ObservableCollection<Recipe> recipes, bool reverse)
+        {
+            for(int i = 0; i < recipes.Count() -1; i++)
+            {
+                for(int j = 0; j < recipes.Count - i - 1; j++)
+                {
+                    Recipe r1 = recipes.ElementAt(j);
+                    Recipe r2 = recipes.ElementAt(j + 1);
+                    if ((r1.Title.CompareTo(r2.Title) > 0 && !reverse) ||(r2.Title.CompareTo(r1.Title) > 0 && reverse))
+                    {
+                        recipes[j] = r2;
+                        recipes[j + 1] = r1;
+                    }
+                }
+            }
         }
 
         public void Add(String category, Recipe r)

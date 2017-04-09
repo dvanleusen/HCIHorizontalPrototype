@@ -244,7 +244,7 @@ namespace CookingInstructorViewModel
             }
             else if (btn.Equals("SearchEntry"))
             {
-                Recipes = recipeData.Search(SearchText);
+                Recipes = recipeData.Search(SearchText, SortRecipesBy);
                 OnPropertyChanged("RecipesEmpty");
             }
             else if (btn.Equals("Serves"))

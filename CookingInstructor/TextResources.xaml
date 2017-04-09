@@ -27,4 +27,7 @@
         <Setter Property="HorizontalAlignment" Value="Left"></Setter>
         <Setter Property="FontSize" Value="18"></Setter>
     </Style>
+    <Style x:Key="RecipeIconText" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="13"></Setter>
+    </Style>
 </ResourceDictionary>

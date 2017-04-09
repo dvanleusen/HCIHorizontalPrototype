@@ -233,6 +233,7 @@
     <Resource Include="recent9.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Tutorial.avi" />
     <Resource Include="applyicon.png" />
     <Resource Include="applyicon2.png" />
     <Content Include="cornSalad.wmv" />
